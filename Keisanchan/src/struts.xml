@@ -16,6 +16,10 @@
 <result name="success">buyItem.jsp</result>
 </action>
 
+<!-- <action name="KeisanAction" class="com.internousdev.keisanchan.action.KeisanAction" method="execute"> -->
+<!-- <result name="success">keisanResult.jsp</result> -->
+<!-- </action> -->
+
 <!-- <action name="LoginAction" class="com.internousdev.keisanchan.action.LoginAction" method="execute"> -->
 <!-- <result name="success">buyItem.jsp</result> -->
 <!-- <result name="error">login.jsp</result> -->

@@ -1,0 +1,101 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<title>計算画面</title>
+<style type="text/css">
+ body{
+      margin:0;
+      padding:0;
+      line-height:1.6;
+      letter-spacing:1px;
+      font-family:Verdana, Helvetica, sans-serif;
+      font-size:12px;
+      color:#333;
+      background:#fff;
+   }
+   table{
+     text-align:center;
+     margin:o auto;
+   }
+
+   #top{
+     width:780px;
+     margin:30px auto;
+     border:1px solid #333;
+   }
+   #header{
+     width:100%;
+     height:80px;
+     background-color:black;
+   }
+   #main{
+     width:100%;
+     height:500px;
+     text-align:center;
+   }
+   #footer{
+     width:100%;
+     height:80px;
+     background-color:black;
+     clear:both;
+   }
+   #text-center{
+      display:inline-block;
+      text-align:center;
+   }
+
+</style>
+</head>
+<body>
+<div id="header">
+        <div id="pr">
+        </div>
+</div>
+<div id = "main">
+       <div id="top">
+          <p>計算</p>
+       </div>
+       <div>
+        <h3>計算するなら数値をいれてね！</h3>
+
+       <br/>
+       <form method="get" action="keisanResult.jsp" oninput="result.value = Number(a.value) + Number(b.value);">
+
+<p>当期純利益<input type="number" name="toki" value=""><p/>
+<br><p>自己資本<input type="number" name="zikoshi" value="0"></p>
+<br><p>経常利益<input type="number" name="keijo" value="0"></p>
+<br><p>売上高<input type="number" name="uriage" value="0"></p>
+<br><p>売上総利益<input type="number" name="uriage_sori" value="0"></p>
+<br><p>営業利益<input type="number" name="eigyo" value="0"></p>
+<br><p>総資産<input type="number" name="total_assets" value="0"></p>
+<br><p>売上債権<input type="number" name="uriage_saiken" value="0"></p>
+<br><p>売上原価<input type="number" name="uriage_genka" value="0"></p>
+<br><p>棚卸資産<input type="number" name="tana" value="0"></p>
+<br><p>流動資産<input type="number" name="ryudo_assets" value="0"></p>
+<br><p>流動負債<input type="number" name="ryudo_fusai" value="0"></p>
+<br><p>固定資産<input type="number" name="kotei_assets" value="0"></p>
+<br><p>負債合計<input type="number" name="total_fusai" value="0"></p>
+
+
+
+<p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p>
+
+</form>
+
+       <div id="text-link">
+
+       </div>
+       </div>
+   </div>
+</body>
+</html>

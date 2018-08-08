@@ -69,23 +69,24 @@
         <h3>計算するなら数値をいれてね！</h3>
 
        <br/>
-       <form method="get" action="keisanResult.jsp" oninput="result.value = Number(a.value) + Number(b.value);">
+       <s:form action="KeisanAction">
+       <form method="get" action="keisanResult.jsp" oninput="result.value = Number(toki.value) / Number(zikoshi.value);">
 
-<p>当期純利益<input type="number" name="toki" value="0"><p/>
-<br><p>自己資本<input type="number" name="zikoshi" value="0"></p>
-<br><p>経常利益<input type="number" name="keijo" value="0"></p>
-<br><p>売上高<input type="number" name="uriage" value="0"></p>
-<br><p>売上総利益<input type="number" name="uriage_sori" value="0"></p>
-<br><p>営業利益<input type="number" name="eigyo" value="0"></p>
-<br><p>総資産<input type="number" name="total_assets" value="0"></p>
-<br><p>売上債権<input type="number" name="uriage_saiken" value="0"></p>
-<br><p>売上原価<input type="number" name="uriage_genka" value="0"></p>
-<br><p>棚卸資産<input type="number" name="tana" value="0"></p>
-<br><p>流動資産<input type="number" name="ryudo_assets" value="0"></p>
-<br><p>流動負債<input type="number" name="ryudo_fusai" value="0"></p>
-<br><p>固定資産<input type="number" name="kotei_assets" value="0"></p>
-<br><p>負債合計<input type="number" name="total_fusai" value="0"></p>
-
+<p>当期純利益<input type="number" name="toki" value=""><p/>
+<br><p>自己資本<input type="number" name="zikoshi" value=""></p>
+<br><p>経常利益<input type="number" name="keijo" value=""></p>
+<br><p>売上高<input type="number" name="uriage" value=""></p>
+<br><p>売上総利益<input type="number" name="uriage_sori" value=""></p>
+<br><p>営業利益<input type="number" name="eigyo" value=""></p>
+<br><p>総資産<input type="number" name="total_assets" value=""></p>
+<br><p>売上債権<input type="number" name="uriage_saiken" value=""></p>
+<br><p>売上原価<input type="number" name="uriage_genka" value=""></p>
+<br><p>棚卸資産<input type="number" name="tana" value=""></p>
+<br><p>流動資産<input type="number" name="ryudo_assets" value=""></p>
+<br><p>流動負債<input type="number" name="ryudo_fusai" value=""></p>
+<br><p>固定資産<input type="number" name="kotei_assets" value=""></p>
+<br><p>負債合計<input type="number" name="total_fusai" value=""></p>
+</s:form>
 
 
 <p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p>
