@@ -60,14 +60,14 @@
    </div>
    <div id="main">
        <div id="top">
-            <p>UserCreate</p>
+            <p>CreateUser</p>
        </div>
        <div>
             <s:if test="errorMassage !=''">
                     <s:property value="errorMassage" escape="false"/>
             </s:if>
             <table>
-            <s:form action="UserCreateConfirmAction">
+            <s:form action="CreateUserConfirmAction">
 
             <tr>
                     <td>

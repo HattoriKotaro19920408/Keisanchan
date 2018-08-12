@@ -70,7 +70,7 @@
 
        <br/>
        <s:form action="KeisanAction">
-       <form method="get" action="keisanResult.jsp" oninput="result.value = Number(toki.value) / Number(zikoshi.value);">
+
 
 <p>当期純利益<input type="number" name="toki" value=""><p/>
 <br><p>自己資本<input type="number" name="zikoshi" value=""></p>
@@ -86,12 +86,12 @@
 <br><p>流動負債<input type="number" name="ryudo_fusai" value=""></p>
 <br><p>固定資産<input type="number" name="kotei_assets" value=""></p>
 <br><p>負債合計<input type="number" name="total_fusai" value=""></p>
-</s:form>
+
 
 
 <p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p>
+</s:form>
 
-</form>
 
        <div id="text-link">
 

@@ -2,7 +2,7 @@ package com.internousdev.keisanchan.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class keisanAction extends ActionSupport{
+public class KeisanAction extends ActionSupport{
 
 	private double toki;
 	private double zikoshi;
@@ -18,6 +18,25 @@ public class keisanAction extends ActionSupport{
 	private double ryudo_fusai;
 	private double kotei_assets;
 	private double total_fusai;
+
+	@SuppressWarnings("unused")
+	public String execute()throws Exception{
+		double roe = toki/zikoshi;
+		double roa = toki/total_assets;
+		double uriage_keijo_ratio = keijo/uriage;
+		double uriage_sori_ratio = uriage_sori/uriage;
+		double uriage_eigyo_ratio = eigyo/uriage;
+
+		double total_kaiten_ratio = uriage/total_assets;
+		double zaiko_kaiten_ratio = uriage_genka/tana;
+
+		double ryudo_ratio = ryudo_assets/ryudo_fusai;
+		double zikoshi_ratio = zikoshi/total_assets;
+		double kotei_ratio = kotei_assets/zikoshi;
+		double fusai_ratio = total_fusai/zikoshi;
+		return null;
+	}
+
 
 	public double getToki(){
 		return this.toki;
@@ -61,6 +80,8 @@ public class keisanAction extends ActionSupport{
 	public double getTotal_fusai(){
 		return this.total_fusai;
 	}
+
+
 
 
 }
