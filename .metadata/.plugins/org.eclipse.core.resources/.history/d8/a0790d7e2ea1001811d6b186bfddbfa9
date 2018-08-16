@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+		 <s:property value="roe"/>
+		 roa = toki/total_assets;
+		 uriage_keijo_ratio = keijo/uriage;
+		 uriage_sori_ratio = uriage_sori/uriage;
+		 uriage_eigyo_ratio = eigyo/uriage;
+
+		 total_kaiten_ratio = uriage/total_assets;
+		 zaiko_kaiten_ratio = uriage_genka/tana;
+
+		 ryudo_ratio = ryudo_assets/ryudo_fusai;
+		 zikoshi_ratio = zikoshi/total_assets;
+		 kotei_ratio = kotei_assets/zikoshi;
+		 fusai_ratio = total_fusai/zikoshi;
+
+
+
+
+<input type="double" name="roe" value=""/>
+</body>
+</html>

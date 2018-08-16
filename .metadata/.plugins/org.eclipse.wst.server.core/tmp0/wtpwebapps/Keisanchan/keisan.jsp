@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="imagetoolbar" content="no" />
@@ -69,9 +69,8 @@
         <h3>計算するなら数値をいれてね！</h3>
 
        <br/>
-       <s:form action="KeisanAction">
-       <form method="get" action="keisanResult.jsp" oninput="result.value = Number(toki.value) / Number(zikoshi.value);">
 
+ <s:form action="KeisanAction">
 <p>当期純利益<input type="number" name="toki" value=""><p/>
 <br><p>自己資本<input type="number" name="zikoshi" value=""></p>
 <br><p>経常利益<input type="number" name="keijo" value=""></p>
@@ -86,12 +85,13 @@
 <br><p>流動負債<input type="number" name="ryudo_fusai" value=""></p>
 <br><p>固定資産<input type="number" name="kotei_assets" value=""></p>
 <br><p>負債合計<input type="number" name="total_fusai" value=""></p>
-</s:form>
+
+
 
 
 <p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p>
 
-</form>
+</s:form>
 
        <div id="text-link">
 

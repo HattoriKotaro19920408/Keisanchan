@@ -64,7 +64,12 @@
     <div id="main">
          <div id="top">
               <p>Home</p>
+
+
+
+
          </div>
+
          <div id="text-center">
               <s:form action="HomeAction">
                       <s:submit value="計算する？"/>
