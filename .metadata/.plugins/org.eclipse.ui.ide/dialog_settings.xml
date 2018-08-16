@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
 	<section name="ExternalProjectImportWizard">
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
@@ -25,5 +26,13 @@
 	<section name="ChooseWorkspaceDialogSettings">
 		<item value="31" key="DIALOG_X_ORIGIN"/>
 		<item value="159" key="DIALOG_Y_ORIGIN"/>
+=======
+	<section name="CleanDialogSettings">
+		<item value="500" key="DIALOG_WIDTH"/>
+		<item value="true" key="TOGGLE_SELECTED"/>
+		<item value="378" key="DIALOG_HEIGHT"/>
+		<item value="433" key="DIALOG_X_ORIGIN"/>
+		<item value="132" key="DIALOG_Y_ORIGIN"/>
+>>>>>>> 5aecbadb51d311424cf5379840e41bfb406e00a1
 	</section>
 </section>

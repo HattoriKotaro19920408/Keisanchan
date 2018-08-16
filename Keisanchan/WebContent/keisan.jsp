@@ -69,6 +69,11 @@
         <h3>計算するなら数値をいれてね！</h3>
 
        <br/>
+<<<<<<< HEAD
+=======
+       <s:form action="KeisanAction">
+
+>>>>>>> 5aecbadb51d311424cf5379840e41bfb406e00a1
 
  <s:form action="KeisanAction">
 <p>当期純利益<input type="number" name="toki" value=""><p/>
@@ -86,12 +91,19 @@
 <br><p>固定資産<input type="number" name="kotei_assets" value=""></p>
 <br><p>負債合計<input type="number" name="total_fusai" value=""></p>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5aecbadb51d311424cf5379840e41bfb406e00a1
 
 
 <p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p>
-
 </s:form>
+
+<<<<<<< HEAD
+</s:form>
+=======
+>>>>>>> 5aecbadb51d311424cf5379840e41bfb406e00a1
 
        <div id="text-link">
 
