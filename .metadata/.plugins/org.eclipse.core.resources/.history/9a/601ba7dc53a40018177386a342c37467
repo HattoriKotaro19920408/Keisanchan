@@ -1,18 +1,13 @@
 package com.internousdev.keisanchan.dto;
 
 public class MyPageDTO {
-	public double roe;
-	public double roa;
-	public double uriage_keijo_ratio;
-	public double uriage_sori_ratio;
-	public double uriage_eigyo_ratio;
-	public double total_kaiten_ratio;
-	public double zaiko_kaiten_ratio;
-	public double ryudo_ratio;
-	public double zikoshi_ratio;
-	public double kotei_ratio;
-	public double fusai_ratio;
-
+	public String itemName;
+	public String totalPrice;
+	public String totalCount;
+	public String payment;
+	public String userName;
+	public String id;
+	public String insert_date;
 
 	public String getItemName(){
 		return itemName;

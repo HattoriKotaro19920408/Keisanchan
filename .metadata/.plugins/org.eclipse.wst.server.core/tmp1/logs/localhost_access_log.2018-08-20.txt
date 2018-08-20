@@ -24,3 +24,7 @@
 0:0:0:0:0:0:0:1 - - [20/Aug/2018:15:30:47 +0900] "GET /Keisanchan/ HTTP/1.1" 200 3260
 0:0:0:0:0:0:0:1 - - [20/Aug/2018:15:31:02 +0900] "POST /Keisanchan/KeisanAction.action;jsessionid=0063ADCB69D7E5C56E16EE722EF62FA8 HTTP/1.1" 200 1130
 0:0:0:0:0:0:0:1 - - [20/Aug/2018:15:31:24 +0900] "POST /Keisanchan/KeisanResultAction HTTP/1.1" 200 3457
+127.0.0.1 - - [20/Aug/2018:17:22:25 +0900] "GET / HTTP/1.1" 404 1019
+0:0:0:0:0:0:0:1 - - [20/Aug/2018:17:22:28 +0900] "GET /Keisanchan/ HTTP/1.1" 200 3260
+0:0:0:0:0:0:0:1 - - [20/Aug/2018:17:22:38 +0900] "POST /Keisanchan/KeisanAction.action;jsessionid=92E7B0FE81DF98C297F0D88BD032D378 HTTP/1.1" 200 1109
+0:0:0:0:0:0:0:1 - - [20/Aug/2018:17:23:05 +0900] "POST /Keisanchan/KeisanResultAction.action HTTP/1.1" 200 9369

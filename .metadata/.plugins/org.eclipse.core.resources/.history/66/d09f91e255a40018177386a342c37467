@@ -1,17 +1,17 @@
 package com.internousdev.keisanchan.dto;
 
 public class MyPageDTO {
-	public double roe;
-	public double roa;
-	public double uriage_keijo_ratio;
-	public double uriage_sori_ratio;
-	public double uriage_eigyo_ratio;
-	public double total_kaiten_ratio;
-	public double zaiko_kaiten_ratio;
-	public double ryudo_ratio;
-	public double zikoshi_ratio;
-	public double kotei_ratio;
-	public double fusai_ratio;
+	public String roe;
+	public String roa;
+	public String uriage_keijo_ratio;
+	public String uriage_sori_ratio;
+	public String uriage_eigyo_ratio;
+	public String total_kaiten_ratio;
+	public String zaiko_kaiten_ratio;
+	public String ryudo_ratio;
+	public String zikoshi_ratio;
+	public String kotei_ratio;
+	public String fusai_ratio;
 
 
 	public String getItemName(){
