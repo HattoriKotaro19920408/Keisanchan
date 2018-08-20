@@ -22,9 +22,19 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 			return ERROR;
 			}
 			if(deleteFlg == null) {
-		String item_transaction_id = session.get("id").toString();
-		String user_master_id = session.get("login_user_id").toString();
-		myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
+		String roe = session.get("roe").toString();
+		String  roa= session.get("roa").toString();
+		String  uriage_keijo_ratio= session.get("uriage_keijo_ratio").toString();
+		String  uriage_sori_ratio= session.get("uriage_sori_ratio").toString();
+		String  uriage_eigyo_ratio= session.get("uriage_eigyo_ratio").toString();
+		String  total_kaiten_ratio= session.get("total_kaiten_ratio").toString();
+		String  zaiko_kaiten_ratio= session.get("zaiko_kaiten_ratio").toString();
+		String  ryudo_ratio= session.get("ryudo_ratio").toString();
+		String  zikoshi_ratio= session.get("zikoshi_ratio").toString();
+		String  kotei_ratio= session.get("kotei_ratio").toString();
+		String  fusai_ratio= session.get("fusai_ratio").toString();
+
+		myPageList = myPageDAO.getMyPageUserInfo(roe, roa, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio);
 
 	}else if(deleteFlg.equals("1")){
 		delete();
@@ -35,10 +45,21 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	}
 	public void delete()throws SQLException{
 
-		String item_transaction_id = session.get("id").toString();
-		String user_master_id = session.get("login_user_id").toString();
+		String roa = session.get("roa").toString();
+		String  roe= session.get("roe").toString();
+		String  uriage_keijo_ratio= session.get("uriage_keijo_ratio").toString();
+		String  uriage_sori_ratio= session.get("uriage_sori_ratio").toString();
+		String  uriage_eigyo_ratio= session.get("uriage_eigyo_ratio").toString();
+		String  total_kaiten_ratio= session.get("total_kaiten_ratio").toString();
+		String  zaiko_kaiten_ratio= session.get("zaiko_kaiten_ratio").toString();
+		String  ryudo_ratio= session.get("ryudo_ratio").toString();
+		String  zikoshi_ratio= session.get("zikoshi_ratio").toString();
+		String  kotei_ratio= session.get("kotei_ratio").toString();
+		String  fusai_ratio= session.get("fusai_ratio").toString();
 
-		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id, user_master_id);
+
+
+		int res = myPageDAO.buyItemHistoryDelete(roa, roe, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio);
 
 		if(res > 0){
 			myPageList = null;

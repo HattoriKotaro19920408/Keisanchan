@@ -71,6 +71,7 @@
        <br/>
 
  <s:form action="KeisanAction">
+ <h1>会社名<input type="value" name="company_name" value=""></h1>
 <p>当期純利益<input type="number" name="toki" value=""><p/>
 <br><p>自己資本<input type="number" name="zikoshi" value=""></p>
 <br><p>経常利益<input type="number" name="keijo" value=""></p>
@@ -87,6 +88,11 @@
 <br><p>負債合計<input type="number" name="total_fusai" value=""></p>
 
 <p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p>
+</s:form>
+
+
+<s:form action="MyPageAction">
+<s:submit value="マイページ"/>
 </s:form>
 
 
