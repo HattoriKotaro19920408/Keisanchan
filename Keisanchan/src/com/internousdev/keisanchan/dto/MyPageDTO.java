@@ -1,6 +1,9 @@
 package com.internousdev.keisanchan.dto;
 
 public class MyPageDTO {
+    public String company_name;
+
+
 	public double roe;
 	public double roa;
 	public double uriage_keijo_ratio;
@@ -14,59 +17,80 @@ public class MyPageDTO {
 	public double fusai_ratio;
 
 
-	public String getItemName(){
-		return itemName;
+	public String getCompany_name() {
+		return company_name;
 	}
-	public void setItemName(String itemName){
-		this.itemName = itemName;
-	}
-
-
-	public String getTotalPrice(){
-		return totalPrice;
-	}
-	public void setTotalPrice(String totalPrice){
-		this.totalPrice = totalPrice;
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
 	}
 
 
-	public String getTotalCount(){
-		return totalCount;
+	public double getRoe() {
+		return roe;
 	}
-	public void setTotalCount(String totalCount){
-		this.totalCount = totalCount;
+	public void setRoe(double roe) {
+		this.roe = roe;
 	}
-
-
-	public String getPayment(){
-		return payment;
+	public double getRoa() {
+		return roa;
 	}
-	public void setPayment(String payment){
-		this.payment = payment;
+	public void setRoa(double roa) {
+		this.roa = roa;
 	}
-
-
-	public String getUserName(){
-		return userName;
+	public double getUriage_keijo_ratio() {
+		return uriage_keijo_ratio;
 	}
-	public void setUserName(String userName){
-		this.userName = userName;
+	public void setUriage_keijo_ratio(double uriage_keijo_ratio) {
+		this.uriage_keijo_ratio = uriage_keijo_ratio;
 	}
-
-
-	public String getId(){
-		return id;
+	public double getUriage_sori_ratio() {
+		return uriage_sori_ratio;
 	}
-	public void setId(String id){
-		this.id = id;
+	public void setUriage_sori_ratio(double uriage_sori_ratio) {
+		this.uriage_sori_ratio = uriage_sori_ratio;
 	}
-
-
-	public String getInsert_date(){
-		return insert_date;
+	public double getUriage_eigyo_ratio() {
+		return uriage_eigyo_ratio;
 	}
-	public void setInsert_date(String insert_date){
-		this.insert_date = insert_date;
+	public void setUriage_eigyo_ratio(double uriage_eigyo_ratio) {
+		this.uriage_eigyo_ratio = uriage_eigyo_ratio;
+	}
+	public double getTotal_kaiten_ratio() {
+		return total_kaiten_ratio;
+	}
+	public void setTotal_kaiten_ratio(double total_kaiten_ratio) {
+		this.total_kaiten_ratio = total_kaiten_ratio;
+	}
+	public double getZaiko_kaiten_ratio() {
+		return zaiko_kaiten_ratio;
+	}
+	public void setZaiko_kaiten_ratio(double zaiko_kaiten_ratio) {
+		this.zaiko_kaiten_ratio = zaiko_kaiten_ratio;
+	}
+	public double getRyudo_ratio() {
+		return ryudo_ratio;
+	}
+	public void setRyudo_ratio(double ryudo_ratio) {
+		this.ryudo_ratio = ryudo_ratio;
+	}
+	public double getZikoshi_ratio() {
+		return zikoshi_ratio;
+	}
+	public void setZikoshi_ratio(double zikoshi_ratio) {
+		this.zikoshi_ratio = zikoshi_ratio;
+	}
+	public double getKotei_ratio() {
+		return kotei_ratio;
+	}
+	public void setKotei_ratio(double kotei_ratio) {
+		this.kotei_ratio = kotei_ratio;
+	}
+	public double getFusai_ratio() {
+		return fusai_ratio;
+	}
+	public void setFusai_ratio(double fusai_ratio) {
+		this.fusai_ratio = fusai_ratio;
 	}
 
 }
+

@@ -12,12 +12,12 @@ public class KeisanResultDAO {
 
 
 
-	public void keisan( String company_name, Double roe, Double roa, Double uriage_keijo_ratio, Double uriage_sori_ratio, Double uriage_eigyo_ratio, Double total_kaiten_ratio, Double zaiko_kaiten_ratio, Double ryudo_ratio, Double zikoshi_ratio, Double kotei_ratio, Double fusai_ratio) throws SQLException {
-
+	public int keisan( String company_name, double roe, double roa, double uriage_keijo_ratio, double uriage_sori_ratio, double uriage_eigyo_ratio, double total_kaiten_ratio, double zaiko_kaiten_ratio, double ryudo_ratio, double zikoshi_ratio, double kotei_ratio, double fusai_ratio) throws SQLException {
+		int count = 0;
 		DBConnector dbConnector = new DBConnector();
 
 		Connection connection = dbConnector.getConnection();
-		String sql = "INSERT INTO login_user_transaction ( company_name, roe, roa, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO keisan_transaction ( company_name, roe, roa, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -33,13 +33,14 @@ public class KeisanResultDAO {
 			preparedStatement.setDouble(10, zikoshi_ratio);
 			preparedStatement.setDouble(11, kotei_ratio);
 			preparedStatement.setDouble(12, fusai_ratio);
-			preparedStatement.execute();
+			count = preparedStatement.executeUpdate();
 		} catch(Exception e) {
 				e.printStackTrace();
 		} finally {
 				connection.close();
 
 		}
+		return count;
 
 	}
 

@@ -22,25 +22,51 @@ public class KeisanResultAction extends ActionSupport implements SessionAware{
 	private double zikoshi_ratio;
 	private double kotei_ratio;
 	private double fusai_ratio;
+
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
 	public Map<String,Object> session;
-	private KeisanResultDAO keisanResultDAO = new KeisanResultDAO();
+
 
 	public String execute() throws SQLException{
-		keisanResultDAO.keisan(session.get("company_name").toString(),
-				Double.parseDouble(session.get("roe").toString()),
-				Double.parseDouble(session.get("roa").toString()),
-				Double.parseDouble(session.get("uriage_keijo_ratio").toString()),
-				Double.parseDouble(session.get("uriage_sori_ratio").toString()),
-				Double.parseDouble(session.get("uriage_eigyo_ratio").toString()),
-				Double.parseDouble(session.get("total_kaiten_ratio").toString()),
-				Double.parseDouble(session.get("zaiko_kaiten_ratio").toString()),
-				Double.parseDouble(session.get("ryudo_ratio").toString()),
-				Double.parseDouble(session.get("zikoshi_ratio").toString()),
-				Double.parseDouble(session.get("kotei_ratio").toString()),
-				Double.parseDouble(session.get(" fusai_ratio").toString()));
 
-		String result = SUCCESS;
+		String result = ERROR;
 
+		KeisanResultDAO keisanResultDAO = new KeisanResultDAO();
+//		keisanResultDAO.keisan(session.get("company_name").toString(),
+//				Double.parseDouble(session.get("roe").toString()),
+//				Double.parseDouble(session.get("roa").toString()),
+//				Double.parseDouble(session.get("uriage_keijo_ratio").toString()),
+//				Double.parseDouble(session.get("uriage_sori_ratio").toString()),
+//				Double.parseDouble(session.get("uriage_eigyo_ratio").toString()),
+//				Double.parseDouble(session.get("total_kaiten_ratio").toString()),
+//				Double.parseDouble(session.get("zaiko_kaiten_ratio").toString()),
+//				Double.parseDouble(session.get("ryudo_ratio").toString()),
+//				Double.parseDouble(session.get("zikoshi_ratio").toString()),
+//				Double.parseDouble(session.get("kotei_ratio").toString()),
+//				Double.parseDouble(session.get(" fusai_ratio").toString()));
+
+
+		int count = keisanResultDAO.keisan(company_name,
+				roe,
+				roa,
+				uriage_keijo_ratio,
+				uriage_sori_ratio,
+				uriage_eigyo_ratio,
+				total_kaiten_ratio,
+				zaiko_kaiten_ratio,
+				ryudo_ratio,
+				zikoshi_ratio,
+				kotei_ratio,
+				fusai_ratio);
+
+		if(count > 0){
+			result = SUCCESS;
+		}
 		return result;
 
 	}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+<constant name="struts.devMode" value="true"/>
+<package name="com.internousdev.keisanchan.action" extends="struts-default">
+
+<action name="GoHomeAction" class="com.internousdev.keisanchan.action.GoHomeAction" method="execute">
+<result name="success">home.jsp</result>
+</action>
+
+
+
+
+<!-- <action name="HomeAction" class="com.internousdev.keisanchan.action.HomeAction" method="execute"> -->
+<!-- <result name="login">login.jsp</result> -->
+<!-- <result name="success">buyItem.jsp</result> -->
+<!-- </action> -->
+
+<action name="KeisanAction" class="com.internousdev.keisanchan.action.KeisanAction" method="execute">
+<result name="success">keisan.jsp</result>
+<result name="error">keisan.jsp</result>
+</action>
+
+<!-- <action name="LoginAction" class="com.internousdev.keisanchan.action.LoginAction" method="execute"> -->
+<!-- <result name="success">buyItem.jsp</result> -->
+<!-- <result name="error">login.jsp</result> -->
+<!-- </action> -->
+
+<action name="KeisanAction" class="com.internousdev.keisanchan.action.KeisanAction" method="execute">
+<result name="success">keisanResult.jsp</result>
+</action>
+
+<action name="LoginAction" class="com.internousdev.keisanchan.action.LoginAction" method="execute">
+<result name="success">buyItem.jsp</result>
+<result name="error">login.jsp</result>
+</action>
+
+<action name="KeisanResultAction" class="com.internousdev.keisanchan.action.KeisanResultAction" method="execute">
+<result name="success">keisan.jsp</result>
+<result name="error">keisanResult.jsp</result>
+</action>
+
+<action name="CreateUserAction" class="com.internousdev.keisanchan.action.CreateUserAction" method="execute">
+<result name="success">createUser.jsp</result>
+<result name="back">login.jsp</result>
+</action>
+
+<action name="CreateUserConfirmAction" class="com.internousdev.keisanchan.action.CreateUserConfirmAction" method="execute">
+<result name="success">createUserConfirm.jsp</result>
+<result name="error">createUser.jsp</result>
+</action>
+
+<action name="CreateUserCompleteAction" class="com.internousdev.keisanchan.action.CreateUserCompleteAction" method="execute">
+<result name="success">createUserComplete.jsp</result>
+</action>
+
+<!-- <action name="BuyItemAction" class="com.internousdev.ecsite.keisanchan.BuyItemAction" method="execute"> -->
+<!-- <result name="success">buyItemConfirm.jsp</result> -->
+<!-- <result name="error">buyItem.jsp</result> -->
+<!-- </action> -->
+
+<!-- <action name="BuyItemConfirmAction" class="com.internousdev.keisanchan.action.BuyItemConfirmAction" method="execute"> -->
+<!-- <result name="success">buyItemComplete.jsp</result> -->
+<!-- <result name="back">buyItem.jsp</result> -->
+<!-- </action> -->
+
+<!-- <action name="BuyItemCompleteAction" class="com.internousdev.keisanchan.action.BuyItemCompleteAction" method="execute"> -->
+<!-- <result name="success">home.jsp</result> -->
+<!--  </action> -->
+
+<action name ="MyPageAction" class="com.internousdev.keisanchan.action.MyPageAction" method="execute">
+<result name ="success">myPage.jsp</result>
+<result name ="error">error.jsp</result>
+</action>
+
+<!-- <action name ="LogoutAction" class="com.internousdev.keisanchan.action.LogoutAction" method="execute"> -->
+<!-- <result name="success">home.jsp</result> -->
+<!-- </action> -->
+
+</package>
+</struts>

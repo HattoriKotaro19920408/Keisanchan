@@ -22,6 +22,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 			return ERROR;
 			}
 			if(deleteFlg == null) {
+		String company_name = session.get("company_name").toString();
 		double.parseDouble roe = session.get("roe").toString());
 		double.parseDouble  roa= session.get("roa").toString());
 		double.parseDouble  uriage_keijo_ratio= session.get("uriage_keijo_ratio").toString());
@@ -34,7 +35,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		double.parseDouble  kotei_ratio= session.get("kotei_ratio").toString());
 		double.parseDouble  fusai_ratio= session.get("fusai_ratio").toString());
 
-		myPageList = myPageDAO.getMyPageUserInfo(roe, roa, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio);
+		myPageList = myPageDAO.getMyPageUserInfo(company_name, roe, roa, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio);
 
 	}else if(deleteFlg.equals("1")){
 		delete();
@@ -45,6 +46,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	}
 	public void delete()throws SQLException{
 
+		String company_name = session.get("company_name").toString();
 		String roa = session.get("roa").toString();
 		String  roe= session.get("roe").toString();
 		String  uriage_keijo_ratio= session.get("uriage_keijo_ratio").toString();
@@ -59,7 +61,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 
 
-		int res = myPageDAO.buyItemHistoryDelete(roa, roe, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio);
+		int res = myPageDAO.buyItemHistoryDelete(company_name, roa, roe, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio);
 
 		if(res > 0){
 			myPageList = null;
