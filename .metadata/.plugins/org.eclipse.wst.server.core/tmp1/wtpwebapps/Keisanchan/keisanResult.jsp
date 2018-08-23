@@ -15,7 +15,7 @@
 
  <s:form action="KeisanResultAction">
 
- <s:property value="company_name"/><br>
+ <s:property value="company_name"/><br><s:hidden name="company_name" value="%{company_name}"/>
 		ROE <s:property value="roe"/><s:hidden name="roe" value="%{roe}"/><br>
 		 ROA<s:property value="roa"/><s:hidden name="roa" value="%{roa}"/><br>
 		 売上高経常利益率<s:property value="uriage_keijo_ratio"/><s:hidden name="uriage_keijo_ratio" value="%{uriage_keijo_ratio}"/><br>
