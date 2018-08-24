@@ -12,7 +12,7 @@ public class KeisanResultDAO {
 
 
 
-	public int keisan( String company_name, double roe, double roa, double uriage_keijo_ratio, double uriage_sori_ratio, double uriage_eigyo_ratio, double total_kaiten_ratio, double zaiko_kaiten_ratio, double ryudo_ratio, double zikoshi_ratio, double kotei_ratio, double fusai_ratio) throws SQLException {
+	public int keisan( String company_name, String roe, String roa, String uriage_keijo_ratio, String uriage_sori_ratio, String uriage_eigyo_ratio, String total_kaiten_ratio, String zaiko_kaiten_ratio, String ryudo_ratio, String zikoshi_ratio, String kotei_ratio, String fusai_ratio) throws SQLException {
 		int count = 0;
 		DBConnector dbConnector = new DBConnector();
 
@@ -22,17 +22,17 @@ public class KeisanResultDAO {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, company_name);
-			preparedStatement.setDouble(2, roe);
-			preparedStatement.setDouble(3, roa);
-			preparedStatement.setDouble(4, uriage_keijo_ratio);
-			preparedStatement.setDouble(5, uriage_sori_ratio);
-			preparedStatement.setDouble(6, uriage_eigyo_ratio);
-			preparedStatement.setDouble(7, total_kaiten_ratio);
-			preparedStatement.setDouble(8, zaiko_kaiten_ratio);
-			preparedStatement.setDouble(9, ryudo_ratio);
-			preparedStatement.setDouble(10, zikoshi_ratio);
-			preparedStatement.setDouble(11, kotei_ratio);
-			preparedStatement.setDouble(12, fusai_ratio);
+			preparedStatement.setString(2, roe);
+			preparedStatement.setString(3, roa);
+			preparedStatement.setString(4, uriage_keijo_ratio);
+			preparedStatement.setString(5, uriage_sori_ratio);
+			preparedStatement.setString(6, uriage_eigyo_ratio);
+			preparedStatement.setString(7, total_kaiten_ratio);
+			preparedStatement.setString(8, zaiko_kaiten_ratio);
+			preparedStatement.setString(9, ryudo_ratio);
+			preparedStatement.setString(10, zikoshi_ratio);
+			preparedStatement.setString(11, kotei_ratio);
+			preparedStatement.setString(12, fusai_ratio);
 			count = preparedStatement.executeUpdate();
 		} catch(Exception e) {
 				e.printStackTrace();

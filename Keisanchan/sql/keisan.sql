@@ -5,9 +5,9 @@ drop database if exists keisanchan;
 create database if not exists keisanchan;
 use keisanchan;
 
-drop table if exists login_transaction;
+drop table if exists login_user_transaction;
 
-create table login_transaction(
+create table login_user_transaction(
   id int not null primary key auto_increment,
   login_id varchar(16) unique,
   login_pass varchar(16),
@@ -19,21 +19,21 @@ drop table if exists keisan_transaction;
 
 create table keisan_transaction(
   company_name varchar(20),
-  roe double,
-  roa double,
-  uriage_keijo_ratio double,
-  uriage_sori_ratio double,
-  uriage_eigyo_ratio double,
-  total_kaiten_ratio double,
-  zaiko_kaiten_ratio double,
-  ryudo_ratio double,
-  zikoshi_ratio double,
-  kotei_ratio double,
-  fusai_ratio double
+  roe varchar(5),
+  roa varchar(5),
+  uriage_keijo_ratio varchar(5),
+  uriage_sori_ratio varchar(5),
+  uriage_eigyo_ratio varchar(5),
+  total_kaiten_ratio varchar(5),
+  zaiko_kaiten_ratio varchar(5),
+  ryudo_ratio varchar(5),
+  zikoshi_ratio varchar(5),
+  kotei_ratio varchar(5),
+  fusai_ratio varchar(5)
 );
 
 
 
 
-INSERT INTO login_transaction(login_id, login_pass, user_name) VALUES("internous", "internous01","test");
+INSERT INTO login_user_transaction(login_id, login_pass, user_name) VALUES("internous", "internous01","test");
 

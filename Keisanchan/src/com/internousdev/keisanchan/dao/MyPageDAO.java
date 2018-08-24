@@ -14,7 +14,7 @@ public class MyPageDAO {
 	private DBConnector dbConnector = new DBConnector();
 	private Connection connection = dbConnector.getConnection();
 
-	public ArrayList<MyPageDTO> getMyPageList(String company_name, double roa, double roe, double uriage_keijo_ratio, double uriage_sori_ratio, double uriage_eigyo_ratio, double total_kaiten_ratio, double zaiko_kaiten_ratio, double ryudo_ratio, double zikoshi_ratio, double kotei_ratio, double fusai_ratio)throws SQLException{
+	public ArrayList<MyPageDTO> getKeisanResultInfo(String company_name)throws SQLException{
 		ArrayList<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
 		String sql="Select kt.company_name , "
 				+ "kt.roe,"
@@ -34,17 +34,7 @@ public class MyPageDAO {
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, company_name);
-			preparedStatement.setDouble(2, roe);
-			preparedStatement.setDouble(3, roe);
-			preparedStatement.setDouble(4, uriage_keijo_ratio);
-			preparedStatement.setDouble(5, uriage_sori_ratio);
-			preparedStatement.setDouble(6, uriage_eigyo_ratio);
-			preparedStatement.setDouble(7, total_kaiten_ratio);
-			preparedStatement.setDouble(8, zaiko_kaiten_ratio);
-			preparedStatement.setDouble(9, ryudo_ratio);
-			preparedStatement.setDouble(10, zikoshi_ratio);
-			preparedStatement.setDouble(11,  kotei_ratio);
-			preparedStatement.setDouble(12, fusai_ratio);
+
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -99,6 +89,11 @@ public class MyPageDAO {
 			connection.close();
 		}
 		return result;
+	}
+
+	public MyPageDTO getKeisanResultInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 
 

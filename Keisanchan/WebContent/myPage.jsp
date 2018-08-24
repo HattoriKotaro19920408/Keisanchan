@@ -95,7 +95,7 @@ table {
 						<th>負債比率</th>
 
 					</tr>
-					<s:iterator value="myPageList">
+					<s:iterator value="#session myPageDtoList">
 						<tr>
 							<td><s:property value="company_name" /></td>
 							<td><s:property value="roe" /></td>

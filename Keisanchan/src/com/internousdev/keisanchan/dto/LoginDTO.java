@@ -2,16 +2,16 @@ package com.internousdev.keisanchan.dto;
 
 public class LoginDTO {
 
-	private String loginId;
+	private String loginUserId;
 	private String loginPassword;
 	private String userName;
 	private boolean loginFlg = false;
 
-	public String getLoginId(){
-		return loginId;
+	public String getLoginUserId(){
+		return loginUserId;
 	}
-	public void setLoginId(String loginId){
-		this.loginId= loginId;
+	public void setLoginUserId(String loginUserId){
+		this.loginUserId= loginUserId;
 	}
 
 

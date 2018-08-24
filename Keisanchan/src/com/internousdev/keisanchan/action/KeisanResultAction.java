@@ -1,11 +1,14 @@
 package com.internousdev.keisanchan.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.keisanchan.dao.KeisanResultDAO;
+import com.internousdev.keisanchan.dto.KeisanResultDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class KeisanResultAction extends ActionSupport implements SessionAware{
@@ -37,6 +40,8 @@ public class KeisanResultAction extends ActionSupport implements SessionAware{
 		String result = ERROR;
 
 		KeisanResultDAO keisanResultDAO = new KeisanResultDAO();
+		List<KeisanResultDTO> myPageDtoList = new ArrayList<KeisanResultDTO>();
+		keisanResultDtoList = keisanResultDAO.getKeisanResultList(String.valueOf(session.get("roe")));
 //		keisanResultDAO.keisan(session.get("company_name").toString(),
 //				Double.parseDouble(session.get("roe").toString()),
 //				Double.parseDouble(session.get("roa").toString()),

@@ -1,0 +1,12 @@
+package com.internousdev.keisanchan.dao;
+
+import com.internousdev.keisanchan.dto.BuyItemDTO;
+
+public class BuyItemDAO {
+
+	public BuyItemDTO getBuyItemInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
+	}
+
+}
