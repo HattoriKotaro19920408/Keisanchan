@@ -5,17 +5,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.internousdev.keisanchan.dto.MyPageDTO;
 import com.internousdev.keisanchan.util.DBConnector;
 
 public class MyPageDAO {
 
-	private DBConnector dbConnector = new DBConnector();
-	private Connection connection = dbConnector.getConnection();
 
-	public ArrayList<MyPageDTO> getKeisanResultInfo(String company_name)throws SQLException{
-		ArrayList<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
+
+	public List<MyPageDTO> getKeisanResultInfo(String loginUserId)throws SQLException{
+		 DBConnector dbConnector = new DBConnector();
+		 Connection connection = dbConnector.getConnection();
+		 List<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
 		String sql="Select kt.company_name , "
 				+ "kt.roe,"
 				+ "kt.roa,"
@@ -33,25 +35,23 @@ public class MyPageDAO {
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, company_name);
-
-
+			preparedStatement.setString(1, loginUserId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while(resultSet.next()){
 				MyPageDTO dto = new MyPageDTO();
 				dto.setCompany_name(resultSet.getString("company_name"));
-				dto.setRoe(resultSet.getDouble("roe"));
-				dto.setRoa(resultSet.getDouble("roa"));
-				dto.setUriage_keijo_ratio(resultSet.getDouble("uriag_keijo_ratio"));
-				dto.setUriage_sori_ratio(resultSet.getDouble("uriage_sori_ratio"));
-				dto.setUriage_eigyo_ratio(resultSet.getDouble("uriage_eigyo_ratio"));
-				dto.setTotal_kaiten_ratio(resultSet.getDouble("total_kaiten_ratio"));
-				dto.setZaiko_kaiten_ratio(resultSet.getDouble("zaiko_kaiten_ratio"));
-				dto.setRyudo_ratio(resultSet.getDouble("ryudo_ratio"));
-				dto.setZikoshi_ratio(resultSet.getDouble("zikoshi_ratio"));
-				dto.setKotei_ratio(resultSet.getDouble("kotei_ratio"));
-				dto.setFusai_ratio(resultSet.getDouble("fusai_ratio"));
+				dto.setRoe(resultSet.getString("roe"));
+				dto.setRoa(resultSet.getString("roa"));
+				dto.setUriage_keijo_ratio(resultSet.getString("uriag_keijo_ratio"));
+				dto.setUriage_sori_ratio(resultSet.getString("uriage_sori_ratio"));
+				dto.setUriage_eigyo_ratio(resultSet.getString("uriage_eigyo_ratio"));
+				dto.setTotal_kaiten_ratio(resultSet.getString("total_kaiten_ratio"));
+				dto.setZaiko_kaiten_ratio(resultSet.getString("zaiko_kaiten_ratio"));
+				dto.setRyudo_ratio(resultSet.getString("ryudo_ratio"));
+				dto.setZikoshi_ratio(resultSet.getString("zikoshi_ratio"));
+				dto.setKotei_ratio(resultSet.getString("kotei_ratio"));
+				dto.setFusai_ratio(resultSet.getString("fusai_ratio"));
 				myPageDTO.add(dto);
 			}
 
@@ -63,25 +63,26 @@ public class MyPageDAO {
 		return myPageDTO;
 	}
 
-	public int keisanResultHistoryDelete(String company_name, double roe, double roa, double uriage_keijo_ratio, double uriage_sori_ratio, double uriage_eigyo_ratio, double total_kaiten_ratio, double zaiko_kaiten_ratio, double ryudo_ratio, double zikoshi_ratio, double kotei_ratio, double fusai_ratio) throws SQLException{
+	public int keisanResultHistoryDelete(String company_name, String roe, String roa, String uriage_keijo_ratio, String uriage_sori_ratio, String uriage_eigyo_ratio, String total_kaiten_ratio, String zaiko_kaiten_ratio, String ryudo_ratio, String zikoshi_ratio, String kotei_ratio, String fusai_ratio) throws SQLException{
 		String sql="DELETE FROM keisan_transaction";
-
+		 DBConnector dbConnector = new DBConnector();
+		 Connection connection = dbConnector.getConnection();
 		PreparedStatement preparedStatement;
 		int result = 0;
 		try{
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, company_name);
-			preparedStatement.setDouble(2, roe);
-			preparedStatement.setDouble(3, roe);
-			preparedStatement.setDouble(4, uriage_keijo_ratio);
-			preparedStatement.setDouble(5, uriage_sori_ratio);
-			preparedStatement.setDouble(6, uriage_eigyo_ratio);
-			preparedStatement.setDouble(7, total_kaiten_ratio);
-			preparedStatement.setDouble(8, zaiko_kaiten_ratio);
-			preparedStatement.setDouble(9, ryudo_ratio);
-			preparedStatement.setDouble(10, zikoshi_ratio);
-			preparedStatement.setDouble(11,  kotei_ratio);
-			preparedStatement.setDouble(12, fusai_ratio);
+			preparedStatement.setString(2, roe);
+			preparedStatement.setString(3, roe);
+			preparedStatement.setString(4, uriage_keijo_ratio);
+			preparedStatement.setString(5, uriage_sori_ratio);
+			preparedStatement.setString(6, uriage_eigyo_ratio);
+			preparedStatement.setString(7, total_kaiten_ratio);
+			preparedStatement.setString(8, zaiko_kaiten_ratio);
+			preparedStatement.setString(9, ryudo_ratio);
+			preparedStatement.setString(10, zikoshi_ratio);
+			preparedStatement.setString(11,  kotei_ratio);
+			preparedStatement.setString(12, fusai_ratio);
 			result = preparedStatement.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

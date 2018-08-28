@@ -97,7 +97,7 @@ table {
 					</tr>
 					<s:iterator value="#session myPageDtoList">
 						<tr>
-							<td><s:property value="company_name" /></td>
+							<td><s:property value="company_name" /><s:hidden name="company_name" value="%{company_name}"/></td>
 							<td><s:property value="roe" /></td>
 							<td><s:property value="roa" /></td>
 							<td><s:property value="uriage_keijo_ratio" /></td>

@@ -1,14 +1,11 @@
 package com.internousdev.keisanchan.action;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.keisanchan.dao.KeisanResultDAO;
-import com.internousdev.keisanchan.dto.KeisanResultDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class KeisanResultAction extends ActionSupport implements SessionAware{
@@ -37,11 +34,39 @@ public class KeisanResultAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 
-		String result = ERROR;
+//		String result = ERROR;
+
+
+
+		 String.valueOf(roe);
+		 String.valueOf(roa);
+		 String.valueOf(uriage_keijo_ratio);
+		 String.valueOf(uriage_sori_ratio);
+		 String.valueOf(uriage_eigyo_ratio);
+		 String.valueOf(total_kaiten_ratio);
+		 String.valueOf(zaiko_kaiten_ratio);
+		 String.valueOf(ryudo_ratio);
+		 String.valueOf(zikoshi_ratio);
+		 String.valueOf(kotei_ratio);
+		 String.valueOf(fusai_ratio);
+
+
 
 		KeisanResultDAO keisanResultDAO = new KeisanResultDAO();
-		List<KeisanResultDTO> myPageDtoList = new ArrayList<KeisanResultDTO>();
-		keisanResultDtoList = keisanResultDAO.getKeisanResultList(String.valueOf(session.get("roe")));
+		keisanResultDAO.keisan(session.get("company_name").toString(),
+				session.get("roe").toString(),
+				session.get("roa").toString(),
+				session.get("uriage_keijo_ratio").toString(),
+				session.get("uriage_sori_ratio").toString(),
+				session.get("uriage_eigyo_ratio").toString(),
+				session.get("total_kaiten_ratio").toString(),
+				session.get("zaiko_kaiten_ratio").toString(),
+				session.get("ryudo_ratio").toString(),
+				session.get("zikoshi_ratio").toString(),
+				session.get("kotei_ratio").toString(),
+				session.get("fusai_ratio").toString());
+//		List<KeisanResultDTO> keisanResultDtoList = new ArrayList<KeisanResultDTO>();
+//		keisanResultDtoList = keisanResultDAO.getKeisanResultList(String.valueOf(session.get("roe")));
 //		keisanResultDAO.keisan(session.get("company_name").toString(),
 //				Double.parseDouble(session.get("roe").toString()),
 //				Double.parseDouble(session.get("roa").toString()),
@@ -55,24 +80,30 @@ public class KeisanResultAction extends ActionSupport implements SessionAware{
 //				Double.parseDouble(session.get("kotei_ratio").toString()),
 //				Double.parseDouble(session.get(" fusai_ratio").toString()));
 
+//		    String a = String.valueOf(123.45);  ダブル型をストリングに変換
+String result = SUCCESS;
+return result;
 
-		int count = keisanResultDAO.keisan(company_name,
-				roe,
-				roa,
-				uriage_keijo_ratio,
-				uriage_sori_ratio,
-				uriage_eigyo_ratio,
-				total_kaiten_ratio,
-				zaiko_kaiten_ratio,
-				ryudo_ratio,
-				zikoshi_ratio,
-				kotei_ratio,
-				fusai_ratio);
 
-		if(count > 0){
-			result = SUCCESS;
-		}
-		return result;
+
+
+//		int count = keisanResultDAO.keisan(company_name,
+//				roe,
+//				roa,
+//				uriage_keijo_ratio,
+//				uriage_sori_ratio,
+//				uriage_eigyo_ratio,
+//				total_kaiten_ratio,
+//				zaiko_kaiten_ratio,
+//				ryudo_ratio,
+//				zikoshi_ratio,
+//				kotei_ratio,
+//				fusai_ratio);
+//
+//		if(count > 0){
+//			result = SUCCESS;
+//		}
+//		return result;
 
 	}
 

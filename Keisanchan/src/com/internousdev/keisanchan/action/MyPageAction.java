@@ -2,6 +2,8 @@ package com.internousdev.keisanchan.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -13,32 +15,42 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MyPageAction extends ActionSupport implements SessionAware{
 	public Map<String, Object> session;
 	private MyPageDAO myPageDAO = new MyPageDAO();
-	private ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
+	private List<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 	private String deleteFlg;
 	private String message;
-	String company_name=null;
 
 
+
+	@SuppressWarnings("unused")
 	public String execute() throws SQLException {
-		myPageList = myPageDAO.getKeisanResultInfo(company_name);
+		MyPageDAO myPageDao = new MyPageDAO();
+		List<MyPageDTO> myPageDtoList = new ArrayList<MyPageDTO>();
+		myPageDtoList = myPageDao.getMyPageList(String.valueOf(session.get("loginUserId")));
+		Iterator<MyPageDTO> iterator = myPageDtoList.iterator();
+		if(!(iterator.hasNext())){
+		    myPageDtoList = null;
+		}
+		session.put("myPageDtoList", myPageDtoList);
+
 
 		String result = ERROR;
 		if (!session.containsKey("loginUserId")) {
 			result = SUCCESS;
 		}
+		myPageList = myPageDAO.getKeisanResultInfo();
 		if(deleteFlg == null) {
 			String company_name = session.get("company_name").toString();
-			double roe = Double.parseDouble(session.get("roe").toString());
-			double roa = Double.parseDouble(session.get("roa").toString());
-			double uriage_keijo_ratio = Double.parseDouble(session.get("uriage_keijo_ratio").toString());
-			double uriage_sori_ratio = Double.parseDouble(session.get("uriage_sori_ratio").toString());
-			double uriage_eigyo_ratio = Double.parseDouble(session.get("uriage_eigyo_ratio").toString());
-			double total_kaiten_ratio = Double.parseDouble(session.get("total_kaiten_ratio").toString());
-			double zaiko_kaiten_ratio = Double.parseDouble(session.get("zaiko_kaiten_ratio").toString());
-			double ryudo_ratio = Double.parseDouble(session.get("ryudo_ratio").toString());
-			double zikoshi_ratio = Double.parseDouble(session.get("zikoshi_ratio").toString());
-			double kotei_ratio = Double.parseDouble(session.get("kotei_ratio").toString());
-			double fusai_ratio = Double.parseDouble(session.get("fusai_ratio").toString());
+			String roe = (session.get("roe").toString());
+			String roa = (session.get("roa").toString());
+			String uriage_keijo_ratio =(session.get("uriage_keijo_ratio").toString());
+			String uriage_sori_ratio =(session.get("uriage_sori_ratio").toString());
+			String uriage_eigyo_ratio =(session.get("uriage_eigyo_ratio").toString());
+			String total_kaiten_ratio =(session.get("total_kaiten_ratio").toString());
+			String zaiko_kaiten_ratio =(session.get("zaiko_kaiten_ratio").toString());
+			String ryudo_ratio =(session.get("ryudo_ratio").toString());
+			String zikoshi_ratio =(session.get("zikoshi_ratio").toString());
+			String kotei_ratio =(session.get("kotei_ratio").toString());
+			String fusai_ratio =(session.get("fusai_ratio").toString());
 
 
 		} else if(deleteFlg.equals("1")) {
@@ -65,18 +77,17 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	public void delete()throws SQLException{
 
 		String company_name = session.get("company_name").toString();
-		double roe = Double.parseDouble(session.get("roe").toString());
-		double roa = Double.parseDouble(session.get("roa").toString());
-		double uriage_keijo_ratio = Double.parseDouble(session.get("uriage_keijo_ratio").toString());
-		double uriage_sori_ratio = Double.parseDouble(session.get("uriage_sori_ratio").toString());
-		double uriage_eigyo_ratio = Double.parseDouble(session.get("uriage_eigyo_ratio").toString());
-		double total_kaiten_ratio = Double.parseDouble(session.get("total_kaiten_ratio").toString());
-		double zaiko_kaiten_ratio = Double.parseDouble(session.get("zaiko_kaiten_ratio").toString());
-		double ryudo_ratio = Double.parseDouble(session.get("ryudo_ratio").toString());
-		double zikoshi_ratio = Double.parseDouble(session.get("zikoshi_ratio").toString());
-		double kotei_ratio = Double.parseDouble(session.get("kotei_ratio").toString());
-		double fusai_ratio = Double.parseDouble(session.get("fusai_ratio").toString());
-
+		String roe = (session.get("roe").toString());
+		String roa = (session.get("roa").toString());
+		String uriage_keijo_ratio =(session.get("uriage_keijo_ratio").toString());
+		String uriage_sori_ratio =(session.get("uriage_sori_ratio").toString());
+		String uriage_eigyo_ratio =(session.get("uriage_eigyo_ratio").toString());
+		String total_kaiten_ratio =(session.get("total_kaiten_ratio").toString());
+		String zaiko_kaiten_ratio =(session.get("zaiko_kaiten_ratio").toString());
+		String ryudo_ratio =(session.get("ryudo_ratio").toString());
+		String zikoshi_ratio =(session.get("zikoshi_ratio").toString());
+		String kotei_ratio =(session.get("kotei_ratio").toString());
+		String fusai_ratio =(session.get("fusai_ratio").toString());
 
 
 

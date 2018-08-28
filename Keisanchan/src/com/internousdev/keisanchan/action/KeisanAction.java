@@ -1,8 +1,12 @@
 package com.internousdev.keisanchan.action;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
-public class KeisanAction extends ActionSupport{
+public class KeisanAction extends ActionSupport implements SessionAware{
 
 	private String company_name;
 	private double toki;
@@ -19,6 +23,7 @@ public class KeisanAction extends ActionSupport{
 	private double ryudo_fusai;
 	private double kotei_assets;
 	private double total_fusai;
+	public Map<String,Object>session;
 
 
 	private double roe = 0d;
@@ -49,6 +54,23 @@ public class KeisanAction extends ActionSupport{
 		 zikoshi_ratio = zikoshi/total_assets;
 		 kotei_ratio = kotei_assets/zikoshi;
 		 fusai_ratio = total_fusai/zikoshi;
+
+		 session.put("company_name", company_name);
+		 session.put("roe",roe);
+		 session.put("roa",roa);
+		 session.put("uriage_keijo_ratio",uriage_keijo_ratio);
+		 session.put("uriage_sori_ratio",uriage_sori_ratio);
+		 session.put("uriage_eigyo_ratio",uriage_eigyo_ratio);
+		 session.put("total_kaiten_ratio",total_kaiten_ratio);
+	     session.put("zaiko_kaiten_ratio",zaiko_kaiten_ratio);
+		 session.put("ryudo_ratio",ryudo_ratio);
+		 session.put("zikoshi_ratio",zikoshi_ratio);
+		 session.put("kotei_ratio",kotei_ratio);
+		 session.put("fusai_ratio",fusai_ratio);
+
+
+
+
 		 return SUCCESS;
 	}
 
@@ -258,6 +280,12 @@ public class KeisanAction extends ActionSupport{
 
 		public void setCompany_name(String company_name) {
 			this.company_name = company_name;
+		}
+
+		@Override
+		public void setSession(Map<String, Object> session) {
+			// TODO 自動生成されたメソッド・スタブ
+			this.session = session;
 		}
 
 

@@ -19,17 +19,17 @@ drop table if exists keisan_transaction;
 
 create table keisan_transaction(
   company_name varchar(20),
-  roe varchar(5),
-  roa varchar(5),
-  uriage_keijo_ratio varchar(5),
-  uriage_sori_ratio varchar(5),
-  uriage_eigyo_ratio varchar(5),
-  total_kaiten_ratio varchar(5),
-  zaiko_kaiten_ratio varchar(5),
-  ryudo_ratio varchar(5),
-  zikoshi_ratio varchar(5),
-  kotei_ratio varchar(5),
-  fusai_ratio varchar(5)
+  roe varchar(20),
+  roa varchar(20),
+  uriage_keijo_ratio varchar(20),
+  uriage_sori_ratio varchar(20),
+  uriage_eigyo_ratio varchar(20),
+  total_kaiten_ratio varchar(20),
+  zaiko_kaiten_ratio varchar(20),
+  ryudo_ratio varchar(20),
+  zikoshi_ratio varchar(20),
+  kotei_ratio varchar(20),
+  fusai_ratio varchar(20)
 );
 
 

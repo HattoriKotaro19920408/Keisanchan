@@ -4,9 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-
 import com.internousdev.keisanchan.dao.LoginDAO;
-
 import com.internousdev.keisanchan.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -21,9 +19,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result = ERROR;
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
-		session.put("loginUser",loginDTO);
+		session.put("loginUserId",loginDTO);
 
-		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
+		if(((LoginDTO)session.get("loginUserId")).getLoginFlg()){
 			result = SUCCESS;
 
 
