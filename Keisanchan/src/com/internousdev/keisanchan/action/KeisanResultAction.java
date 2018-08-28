@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.keisanchan.dao.KeisanResultDAO;
+import com.internousdev.keisanchan.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class KeisanResultAction extends ActionSupport implements SessionAware{
@@ -53,7 +54,8 @@ public class KeisanResultAction extends ActionSupport implements SessionAware{
 
 
 		KeisanResultDAO keisanResultDAO = new KeisanResultDAO();
-		keisanResultDAO.keisan(session.get("company_name").toString(),
+		keisanResultDAO.keisan(((LoginDTO)session.get("loginUserId")).getLoginUserId(),
+				session.get("company_name").toString(),
 				session.get("roe").toString(),
 				session.get("roa").toString(),
 				session.get("uriage_keijo_ratio").toString(),
@@ -63,8 +65,7 @@ public class KeisanResultAction extends ActionSupport implements SessionAware{
 				session.get("zaiko_kaiten_ratio").toString(),
 				session.get("ryudo_ratio").toString(),
 				session.get("zikoshi_ratio").toString(),
-				session.get("kotei_ratio").toString(),
-				session.get("fusai_ratio").toString());
+				session.get("kotei_ratio").toString(), session.get("fusai_ratio").toString());
 //		List<KeisanResultDTO> keisanResultDtoList = new ArrayList<KeisanResultDTO>();
 //		keisanResultDtoList = keisanResultDAO.getKeisanResultList(String.valueOf(session.get("roe")));
 //		keisanResultDAO.keisan(session.get("company_name").toString(),

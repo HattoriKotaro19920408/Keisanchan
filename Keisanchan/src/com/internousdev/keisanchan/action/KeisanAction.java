@@ -1,5 +1,6 @@
 package com.internousdev.keisanchan.action;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -40,253 +41,258 @@ public class KeisanAction extends ActionSupport implements SessionAware{
 	private double kotei_ratio = 0d;
 	private double fusai_ratio = 0d;
 
-		public String execute(){
-		 roe = toki/zikoshi;
-		 roa = toki/total_assets;
-		 uriage_keijo_ratio = keijo/uriage;
-		 uriage_sori_ratio = uriage_sori/uriage;
-		 uriage_eigyo_ratio = eigyo/uriage;
+	public String execute(){
+		roe = roundRatio(toki/zikoshi);
+		roa = roundRatio(toki/total_assets);
+		uriage_keijo_ratio = roundRatio(keijo/uriage);
+		uriage_sori_ratio = roundRatio(uriage_sori/uriage);
+		uriage_eigyo_ratio = roundRatio(eigyo/uriage);
 
-		 total_kaiten_ratio = uriage/total_assets;
-		 zaiko_kaiten_ratio = uriage_genka/tana;
+		total_kaiten_ratio = roundRatio(uriage/total_assets);
+		zaiko_kaiten_ratio = roundRatio(uriage_genka/tana);
 
-		 ryudo_ratio = ryudo_assets/ryudo_fusai;
-		 zikoshi_ratio = zikoshi/total_assets;
-		 kotei_ratio = kotei_assets/zikoshi;
-		 fusai_ratio = total_fusai/zikoshi;
-
-		 session.put("company_name", company_name);
-		 session.put("roe",roe);
-		 session.put("roa",roa);
-		 session.put("uriage_keijo_ratio",uriage_keijo_ratio);
-		 session.put("uriage_sori_ratio",uriage_sori_ratio);
-		 session.put("uriage_eigyo_ratio",uriage_eigyo_ratio);
-		 session.put("total_kaiten_ratio",total_kaiten_ratio);
-	     session.put("zaiko_kaiten_ratio",zaiko_kaiten_ratio);
-		 session.put("ryudo_ratio",ryudo_ratio);
-		 session.put("zikoshi_ratio",zikoshi_ratio);
-		 session.put("kotei_ratio",kotei_ratio);
-		 session.put("fusai_ratio",fusai_ratio);
+		ryudo_ratio = roundRatio(ryudo_assets/ryudo_fusai);
+		zikoshi_ratio = roundRatio(zikoshi/total_assets);
+		kotei_ratio = roundRatio(kotei_assets/zikoshi);
+		fusai_ratio = roundRatio(total_fusai/zikoshi);
 
 
+		session.put("company_name", company_name);
+		session.put("roe",roe);
+		session.put("roa",roa);
+		session.put("uriage_keijo_ratio",uriage_keijo_ratio);
+		session.put("uriage_sori_ratio",uriage_sori_ratio);
+		session.put("uriage_eigyo_ratio",uriage_eigyo_ratio);
+		session.put("total_kaiten_ratio",total_kaiten_ratio);
+		session.put("zaiko_kaiten_ratio",zaiko_kaiten_ratio);
+		session.put("ryudo_ratio",ryudo_ratio);
+		session.put("zikoshi_ratio",zikoshi_ratio);
+		session.put("kotei_ratio",kotei_ratio);
+		session.put("fusai_ratio",fusai_ratio);
 
-
-		 return SUCCESS;
+		return SUCCESS;
 	}
 
-		public double getToki() {
-			return toki;
-		}
+	private double roundRatio(double ratio) {
+		BigDecimal bi = new BigDecimal(String.valueOf(ratio));
+		double result = bi.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+		return result;
 
-		public void setToki(double toki) {
-			this.toki = toki;
-		}
+	}
 
-		public double getZikoshi() {
-			return zikoshi;
-		}
+	public double getToki() {
+		return toki;
+	}
 
-		public void setZikoshi(double zikoshi) {
-			this.zikoshi = zikoshi;
-		}
+	public void setToki(double toki) {
+		this.toki = toki;
+	}
 
-		public double getKeijo() {
-			return keijo;
-		}
+	public double getZikoshi() {
+		return zikoshi;
+	}
 
-		public void setKeijo(double keijo) {
-			this.keijo = keijo;
-		}
+	public void setZikoshi(double zikoshi) {
+		this.zikoshi = zikoshi;
+	}
 
-		public double getUriage() {
-			return uriage;
-		}
+	public double getKeijo() {
+		return keijo;
+	}
 
-		public void setUriage(double uriage) {
-			this.uriage = uriage;
-		}
+	public void setKeijo(double keijo) {
+		this.keijo = keijo;
+	}
 
-		public double getUriage_sori() {
-			return uriage_sori;
-		}
+	public double getUriage() {
+		return uriage;
+	}
 
-		public void setUriage_sori(double uriage_sori) {
-			this.uriage_sori = uriage_sori;
-		}
+	public void setUriage(double uriage) {
+		this.uriage = uriage;
+	}
 
-		public double getEigyo() {
-			return eigyo;
-		}
+	public double getUriage_sori() {
+		return uriage_sori;
+	}
 
-		public void setEigyo(double eigyo) {
-			this.eigyo = eigyo;
-		}
+	public void setUriage_sori(double uriage_sori) {
+		this.uriage_sori = uriage_sori;
+	}
 
-		public double getTotal_assets() {
-			return total_assets;
-		}
+	public double getEigyo() {
+		return eigyo;
+	}
 
-		public void setTotal_assets(double total_assets) {
-			this.total_assets = total_assets;
-		}
+	public void setEigyo(double eigyo) {
+		this.eigyo = eigyo;
+	}
 
-		public double getUriage_saiken() {
-			return uriage_saiken;
-		}
+	public double getTotal_assets() {
+		return total_assets;
+	}
 
-		public void setUriage_saiken(double uriage_saiken) {
-			this.uriage_saiken = uriage_saiken;
-		}
+	public void setTotal_assets(double total_assets) {
+		this.total_assets = total_assets;
+	}
 
-		public double getUriage_genka() {
-			return uriage_genka;
-		}
+	public double getUriage_saiken() {
+		return uriage_saiken;
+	}
 
-		public void setUriage_genka(double uriage_genka) {
-			this.uriage_genka = uriage_genka;
-		}
+	public void setUriage_saiken(double uriage_saiken) {
+		this.uriage_saiken = uriage_saiken;
+	}
 
-		public double getTana() {
-			return tana;
-		}
+	public double getUriage_genka() {
+		return uriage_genka;
+	}
 
-		public void setTana(double tana) {
-			this.tana = tana;
-		}
+	public void setUriage_genka(double uriage_genka) {
+		this.uriage_genka = uriage_genka;
+	}
 
-		public double getRyudo_assets() {
-			return ryudo_assets;
-		}
+	public double getTana() {
+		return tana;
+	}
 
-		public void setRyudo_assets(double ryudo_assets) {
-			this.ryudo_assets = ryudo_assets;
-		}
+	public void setTana(double tana) {
+		this.tana = tana;
+	}
 
-		public double getRyudo_fusai() {
-			return ryudo_fusai;
-		}
+	public double getRyudo_assets() {
+		return ryudo_assets;
+	}
 
-		public void setRyudo_fusai(double ryudo_fusai) {
-			this.ryudo_fusai = ryudo_fusai;
-		}
+	public void setRyudo_assets(double ryudo_assets) {
+		this.ryudo_assets = ryudo_assets;
+	}
 
-		public double getKotei_assets() {
-			return kotei_assets;
-		}
+	public double getRyudo_fusai() {
+		return ryudo_fusai;
+	}
 
-		public void setKotei_assets(double kotei_assets) {
-			this.kotei_assets = kotei_assets;
-		}
+	public void setRyudo_fusai(double ryudo_fusai) {
+		this.ryudo_fusai = ryudo_fusai;
+	}
 
-		public double getTotal_fusai() {
-			return total_fusai;
-		}
+	public double getKotei_assets() {
+		return kotei_assets;
+	}
 
-		public void setTotal_fusai(double total_fusai) {
-			this.total_fusai = total_fusai;
-		}
+	public void setKotei_assets(double kotei_assets) {
+		this.kotei_assets = kotei_assets;
+	}
 
-		public double getRoe() {
-			return roe;
-		}
+	public double getTotal_fusai() {
+		return total_fusai;
+	}
 
-		public void setRoe(double roe) {
-			this.roe = roe;
-		}
+	public void setTotal_fusai(double total_fusai) {
+		this.total_fusai = total_fusai;
+	}
 
-		public double getRoa() {
-			return roa;
-		}
+	public double getRoe() {
+		return roe;
+	}
 
-		public void setRoa(double roa) {
-			this.roa = roa;
-		}
+	public void setRoe(double roe) {
+		this.roe = roe;
+	}
 
-		public double getUriage_keijo_ratio() {
-			return uriage_keijo_ratio;
-		}
+	public double getRoa() {
+		return roa;
+	}
 
-		public void setUriage_keijo_ratio(double uriage_keijo_ratio) {
-			this.uriage_keijo_ratio = uriage_keijo_ratio;
-		}
+	public void setRoa(double roa) {
+		this.roa = roa;
+	}
 
-		public double getUriage_sori_ratio() {
-			return uriage_sori_ratio;
-		}
+	public double getUriage_keijo_ratio() {
+		return uriage_keijo_ratio;
+	}
 
-		public void setUriage_sori_ratio(double uriage_sori_ratio) {
-			this.uriage_sori_ratio = uriage_sori_ratio;
-		}
+	public void setUriage_keijo_ratio(double uriage_keijo_ratio) {
+		this.uriage_keijo_ratio = uriage_keijo_ratio;
+	}
 
-		public double getUriage_eigyo_ratio() {
-			return uriage_eigyo_ratio;
-		}
+	public double getUriage_sori_ratio() {
+		return uriage_sori_ratio;
+	}
 
-		public void setUriage_eigyo_ratio(double uriage_eigyo_ratio) {
-			this.uriage_eigyo_ratio = uriage_eigyo_ratio;
-		}
+	public void setUriage_sori_ratio(double uriage_sori_ratio) {
+		this.uriage_sori_ratio = uriage_sori_ratio;
+	}
 
-		public double getTotal_kaiten_ratio() {
-			return total_kaiten_ratio;
-		}
+	public double getUriage_eigyo_ratio() {
+		return uriage_eigyo_ratio;
+	}
 
-		public void setTotal_kaiten_ratio(double total_kaiten_ratio) {
-			this.total_kaiten_ratio = total_kaiten_ratio;
-		}
+	public void setUriage_eigyo_ratio(double uriage_eigyo_ratio) {
+		this.uriage_eigyo_ratio = uriage_eigyo_ratio;
+	}
 
-		public double getZaiko_kaiten_ratio() {
-			return zaiko_kaiten_ratio;
-		}
+	public double getTotal_kaiten_ratio() {
+		return total_kaiten_ratio;
+	}
 
-		public void setZaiko_kaiten_ratio(double zaiko_kaiten_ratio) {
-			this.zaiko_kaiten_ratio = zaiko_kaiten_ratio;
-		}
+	public void setTotal_kaiten_ratio(double total_kaiten_ratio) {
+		this.total_kaiten_ratio = total_kaiten_ratio;
+	}
 
-		public double getRyudo_ratio() {
-			return ryudo_ratio;
-		}
+	public double getZaiko_kaiten_ratio() {
+		return zaiko_kaiten_ratio;
+	}
 
-		public void setRyudo_ratio(double ryudo_ratio) {
-			this.ryudo_ratio = ryudo_ratio;
-		}
+	public void setZaiko_kaiten_ratio(double zaiko_kaiten_ratio) {
+		this.zaiko_kaiten_ratio = zaiko_kaiten_ratio;
+	}
 
-		public double getZikoshi_ratio() {
-			return zikoshi_ratio;
-		}
+	public double getRyudo_ratio() {
+		return ryudo_ratio;
+	}
 
-		public void setZikoshi_ratio(double zikoshi_ratio) {
-			this.zikoshi_ratio = zikoshi_ratio;
-		}
+	public void setRyudo_ratio(double ryudo_ratio) {
+		this.ryudo_ratio = ryudo_ratio;
+	}
 
-		public double getKotei_ratio() {
-			return kotei_ratio;
-		}
+	public double getZikoshi_ratio() {
+		return zikoshi_ratio;
+	}
 
-		public void setKotei_ratio(double kotei_ratio) {
-			this.kotei_ratio = kotei_ratio;
-		}
+	public void setZikoshi_ratio(double zikoshi_ratio) {
+		this.zikoshi_ratio = zikoshi_ratio;
+	}
 
-		public double getFusai_ratio() {
-			return fusai_ratio;
-		}
+	public double getKotei_ratio() {
+		return kotei_ratio;
+	}
 
-		public void setFusai_ratio(double fusai_ratio) {
-			this.fusai_ratio = fusai_ratio;
-		}
+	public void setKotei_ratio(double kotei_ratio) {
+		this.kotei_ratio = kotei_ratio;
+	}
 
-		public String getCompany_name() {
-			return company_name;
-		}
+	public double getFusai_ratio() {
+		return fusai_ratio;
+	}
 
-		public void setCompany_name(String company_name) {
-			this.company_name = company_name;
-		}
+	public void setFusai_ratio(double fusai_ratio) {
+		this.fusai_ratio = fusai_ratio;
+	}
 
-		@Override
-		public void setSession(Map<String, Object> session) {
-			// TODO 自動生成されたメソッド・スタブ
-			this.session = session;
-		}
+	public String getCompany_name() {
+		return company_name;
+	}
+
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		// TODO 自動生成されたメソッド・スタブ
+		this.session = session;
+	}
 
 
 

@@ -18,20 +18,20 @@ public class MyPageDAO {
 		 DBConnector dbConnector = new DBConnector();
 		 Connection connection = dbConnector.getConnection();
 		 List<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
-		String sql="Select kt.company_name , "
-				+ "kt.roe,"
-				+ "kt.roa,"
-				+ "kt.uriage_keijo_ratio,"
-				+ "kt.uriage_sori_ratio,"
-				+ "kt.uriage_eigyo_ratio,"
-				+ "kt.total_kaiten_ratio, "
-				+ "kt.zaiko_kaiten_ratio, "
-				+ "kt.ryudo_ratio, "
-				+ "kt.zikoshi_ratio, "
-				+ "kt.kotei_ratio, "
-				+ "kt.fusai_ratio "
-				+ "FROM keisan_transaction as kt "
-				+ "LEFT JOIN login_transaction as lt";
+		String sql="Select company_name , "
+				+ "roe,"
+				+ "roa,"
+				+ "uriage_keijo_ratio,"
+				+ "uriage_sori_ratio,"
+				+ "uriage_eigyo_ratio,"
+				+ "total_kaiten_ratio, "
+				+ "zaiko_kaiten_ratio, "
+				+ "ryudo_ratio, "
+				+ "zikoshi_ratio, "
+				+ "kotei_ratio, "
+				+ "fusai_ratio "
+				+ "FROM keisan_transaction "
+				+ "WHERE login_id = ?";
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);

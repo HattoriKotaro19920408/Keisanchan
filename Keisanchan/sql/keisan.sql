@@ -18,6 +18,7 @@ create table login_user_transaction(
 drop table if exists keisan_transaction;
 
 create table keisan_transaction(
+  login_id varchar(16),
   company_name varchar(20),
   roe varchar(20),
   roa varchar(20),

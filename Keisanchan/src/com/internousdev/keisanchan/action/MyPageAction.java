@@ -37,7 +37,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		if (!session.containsKey("loginUserId")) {
 			result = SUCCESS;
 		}
-		myPageList = myPageDAO.getKeisanResultInfo();
+		myPageList = myPageDAO.getKeisanResultInfo(loginUserId);
 		if(deleteFlg == null) {
 			String company_name = session.get("company_name").toString();
 			String roe = (session.get("roe").toString());
