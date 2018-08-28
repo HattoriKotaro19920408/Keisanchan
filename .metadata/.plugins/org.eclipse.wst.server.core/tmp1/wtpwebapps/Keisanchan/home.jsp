@@ -107,7 +107,7 @@
 
          <div id="text-center">
               <s:form action="HomeAction">
-                      <s:submit value="計算"/>
+                      <s:submit value="ログイン"/>
               </s:form>
 
               <s:if test = "#session.id !=null">
@@ -116,7 +116,7 @@
          </div>
           <div class="right">
               <div class="balloon1">
-              <p>こんにちは。計算するなら計算ボタンをおしてね</p>
+              <p>こんにちは。計算するならログインボタンを押してね</p>
               </div>
               <div class="keisan">
 		              <img src="img/keisan.PNG" alt="写真">
