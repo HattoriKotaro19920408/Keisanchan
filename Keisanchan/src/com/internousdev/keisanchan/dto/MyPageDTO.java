@@ -1,6 +1,7 @@
 package com.internousdev.keisanchan.dto;
 
 public class MyPageDTO {
+	public String login_id;
     public String company_name;
 
 
@@ -22,6 +23,13 @@ public class MyPageDTO {
 	}
 	public void setCompany_name(String company_name) {
 		this.company_name = company_name;
+	}
+
+	public String getlogin_id() {
+		return login_id;
+	}
+	public void setlogin_id(String login_id) {
+		this.login_id = login_id;
 	}
 
 

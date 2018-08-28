@@ -31,7 +31,16 @@
    #top{
      width:780px;
      margin:30px auto;
-     border:1px solid #333;
+/*      border:1px solid #333; */
+}
+
+#top h1{ font-family: 'Amatic SC', cursive;
+     font-size: 40px;
+     background: url(http://webcreatorbox.com/sample/images/check.png) repeat-x 0 25px;
+     display: inline-block;
+     padding: 0 10px
+}
+
    }
    #header{
      width:100%;
@@ -40,19 +49,45 @@
    }
    #main{
      width:100%;
-     height:500px;
+/*      height:500px; */
      text-align:center;
    }
    #footer{
      width:100%;
      height:80px;
-     background-color:black;
+     background-color:pink;
      clear:both;
    }
    #text-center{
       display:inline-block;
       text-align:center;
    }
+
+   .balloon1 {
+ 	position: relative;
+	display: inline-block;
+ 	margin: 1.5em 0;
+	padding: 7px 10px;
+	min-width: 120px;
+ 	max-width: 100%;
+ 	color: #555;
+	font-size: 16px;
+	background: #e0edff;
+	border-radius: 15px;
+}
+.balloon1:before{
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+ 	margin-left: -15px;
+	border: 15px solid transparent;
+	border-top: 15px solid #e0edff;
+}
+.balloon1 p {
+	margin: 0;
+	padding: 0;
+}
 </style>
 </head>
 <body>
@@ -63,7 +98,7 @@
 
     <div id="main">
          <div id="top">
-              <p>Home</p>
+              <h1>計算ちゃんの計算サイト</h1>
 
 
 
@@ -72,12 +107,21 @@
 
          <div id="text-center">
               <s:form action="HomeAction">
-                      <s:submit value="計算する？"/>
+                      <s:submit value="計算"/>
               </s:form>
+
               <s:if test = "#session.id !=null">
                       <p>ログアウトする場合は<a href='<s:url action="LoginAction"/>'>こちら</a></p>
               </s:if>
          </div>
+          <div class="right">
+              <div class="balloon1">
+              <p>こんにちは。計算するなら計算ボタンをおしてね</p>
+              </div>
+              <div class="keisan">
+		              <img src="img/keisan.PNG" alt="写真">
+	          </div>
+	      </div>
     </div>
     <div id="footer">
          <div id = "pr">

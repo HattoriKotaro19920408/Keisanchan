@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.keisanchan.dao.MyPageDAO;
+import com.internousdev.keisanchan.dto.LoginDTO;
 import com.internousdev.keisanchan.dto.MyPageDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -18,11 +19,15 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	private List<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 	private String deleteFlg;
 	private String message;
+	private MyPageDTO myPageDTO = new MyPageDTO();
 
 
-
+//	keisanResultDAO.keisan(((LoginDTO)session.get("loginUserId")).getLoginUserId(),
 	@SuppressWarnings("unused")
 	public String execute() throws SQLException {
+		myPageDTO = myPageDAO.getKeisanResultInfo(login_id);
+		session.put("loginUserId",loginDTO);
+
 		MyPageDAO myPageDao = new MyPageDAO();
 		List<MyPageDTO> myPageDtoList = new ArrayList<MyPageDTO>();
 		myPageDtoList = myPageDao.getMyPageList(String.valueOf(session.get("loginUserId")));
@@ -37,7 +42,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		if (!session.containsKey("loginUserId")) {
 			result = SUCCESS;
 		}
-		myPageList = myPageDAO.getKeisanResultInfo(loginUserId);
+		myPageDAO.getKeisanResultInfo(LoginDTO)session.get("loginUserId")).getLoginUserId();
 		if(deleteFlg == null) {
 			String company_name = session.get("company_name").toString();
 			String roe = (session.get("roe").toString());
@@ -108,7 +113,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String, Object>session){
 		this.session = session;
 	}
-	public ArrayList<MyPageDTO> getMyPageList(){
+	public List<MyPageDTO> getMyPageList(){
 		return this.myPageList;
 	}
 	public String getMessage(){
@@ -116,6 +121,20 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	}
 	public void setMessage(String message){
 		this.message = message;
+	}
+
+
+
+
+	public MyPageDTO getMyPageDTO() {
+		return myPageDTO;
+	}
+
+
+
+
+	public void setMyPageDTO(MyPageDTO myPageDTO) {
+		this.myPageDTO = myPageDTO;
 	}
 
 }

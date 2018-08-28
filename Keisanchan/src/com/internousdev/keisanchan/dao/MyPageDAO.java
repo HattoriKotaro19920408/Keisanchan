@@ -11,14 +11,35 @@ import com.internousdev.keisanchan.dto.MyPageDTO;
 import com.internousdev.keisanchan.util.DBConnector;
 
 public class MyPageDAO {
+	MyPageDTO myPageDTO = new MyPageDTO();
+
+//	public MyPageDTO getKeisanResultInfo(String loginUserId,String loginPassword){
+//		MyPageDTO myPageDTO = new MyPageDTO();
+//		DBConnector dbConnector = new DBConnector();
+//		 Connection connection = dbConnector.getConnection();
+//		String sql="Select login_id,"
+//				+ " company_name , "
+//				+ "roe,"
+//				+ "roa,"
+//				+ "uriage_keijo_ratio,"
+//				+ "uriage_sori_ratio,"
+//				+ "uriage_eigyo_ratio,"
+//				+ "total_kaiten_ratio, "
+//				+ "zaiko_kaiten_ratio, "
+//				+ "ryudo_ratio, "
+//				+ "zikoshi_ratio, "
+//				+ "kotei_ratio, "
+//				+ "fusai_ratio "
+//				+ "FROM keisan_transaction "
+//				+ "WHERE login_id = ?";
 
 
-
-	public List<MyPageDTO> getKeisanResultInfo(String loginUserId)throws SQLException{
+public List<MyPageDTO> getKeisanResultInfo(String login_id)throws SQLException{
 		 DBConnector dbConnector = new DBConnector();
 		 Connection connection = dbConnector.getConnection();
 		 List<MyPageDTO> myPageDTO = new ArrayList<MyPageDTO>();
-		String sql="Select company_name , "
+		String sql="Select login_id,"
+				+ " company_name , "
 				+ "roe,"
 				+ "roa,"
 				+ "uriage_keijo_ratio,"
@@ -35,11 +56,12 @@ public class MyPageDAO {
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, loginUserId);
+			preparedStatement.setString(1,login_id);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			while(resultSet.next()){
 				MyPageDTO dto = new MyPageDTO();
+				dto.setlogin_id(resultSet.getString("login_id"));
 				dto.setCompany_name(resultSet.getString("company_name"));
 				dto.setRoe(resultSet.getString("roe"));
 				dto.setRoa(resultSet.getString("roa"));
