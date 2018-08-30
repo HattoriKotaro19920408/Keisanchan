@@ -54,52 +54,138 @@
       text-align:center;
    }
 
+   .left{
+      padding-top:30px;
+      float:left;
+
+   }
+   .right{
+      width:300px;
+      float:left;
+   }
+
+    .pic{
+     width:70%;
+/*      float:right; */
+   }
+
+   .campany{
+     text-align:center;
+   }
+   .box1{
+     float:left;
+     padding-left:20px;
+   }
+   .box2{
+     float:left;
+     padding-left:20px;
+   }
+   .box3{
+     float:left;
+     padding-left:20px;
+   }
+   .box4{
+     clear:both;
+   }
+    .balloon1 {
+ 	position: relative;
+	display: inline-block;
+ 	margin: 1.5em 0;
+	padding: 7px 10px;
+	min-width: 120px;
+ 	max-width: 100%;
+ 	color: #555;
+	font-size: 16px;
+	background: #e0edff;
+	border-radius: 15px;
+}
+.balloon1:before{
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+ 	margin-left: -15px;
+	border: 15px solid transparent;
+	border-top: 15px solid #e0edff;
+}
+.balloon1 p {
+	margin: 0;
+	padding: 0;
+}
+
+.myp{
+    clear:both;
+    text-align:center;
+}
+
 </style>
 </head>
 <body>
+
+
 <div id="header">
         <div id="pr">
         </div>
 </div>
 <div id = "main">
+<div class="kokuban"></div>
+		<img src="img/kokuban.png" class="kokuban">
        <div id="top">
           <p>計算</p>
        </div>
-       <div>
-        <h3>計算するなら数値をいれてね！</h3>
+
+
 
        <br/>
 
  <s:form action="KeisanAction">
- <h1>会社名<input type="text" name="company_name" value=""></h1>
-<p>当期純利益<input type="number" name="toki" value=""><p/>
-<br><p>自己資本<input type="number" name="zikoshi" value=""></p>
-<br><p>経常利益<input type="number" name="keijo" value=""></p>
-<br><p>売上高<input type="number" name="uriage" value=""></p>
-<br><p>売上総利益<input type="number" name="uriage_sori" value=""></p>
-<br><p>営業利益<input type="number" name="eigyo" value=""></p>
-<br><p>総資産<input type="number" name="total_assets" value=""></p>
-<br><p>売上債権<input type="number" name="uriage_saiken" value=""></p>
-<br><p>売上原価<input type="number" name="uriage_genka" value=""></p>
-<br><p>棚卸資産<input type="number" name="tana" value=""></p>
-<br><p>流動資産<input type="number" name="ryudo_assets" value=""></p>
-<br><p>流動負債<input type="number" name="ryudo_fusai" value=""></p>
-<br><p>固定資産<input type="number" name="kotei_assets" value=""></p>
-<br><p>負債合計<input type="number" name="total_fusai" value=""></p>
 
-<p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p>
+ <div class="campany"><h1>会社名<input type="text" name="company_name" value=""></h1></div>
+ <div class="left">
+<div class="box1">
+    <br> <p>当期純利益:<input type="number" name="toki" value=""><p/>
+     <br><p>自己資本:<input type="number" name="zikoshi" value=""></p>
+     <br><p>経常利益:<input type="number" name="keijo" value=""></p>
+     <br><p>売上高:<input type="number" name="uriage" value=""></p>
+     <br><p>売上総利益:<input type="number" name="uriage_sori" value=""></p>
+</div>
+<div class="box2">
+     <br><p>営業利益:<input type="number" name="eigyo" value=""></p>
+     <br><p>総資産:<input type="number" name="total_assets" value=""></p>
+     <br><p>売上債権:<input type="number" name="uriage_saiken" value=""></p>
+     <br><p>売上原価:<input type="number" name="uriage_genka" value=""></p>
+<br><p>棚卸資産:<input type="number" name="tana" value=""></p>
+</div>
+<div class = "box3">
+<br><p>流動資産:<input type="number" name="ryudo_assets" value=""></p>
+<br><p>流動負債:<input type="number" name="ryudo_fusai" value=""></p>
+<br><p>固定資産:<input type="number" name="kotei_assets" value=""></p>
+<br><p>負債合計:<input type="number" name="total_fusai" value=""></p>
+</div>
+<div class="box4"><p><input type="submit" value="計算する"> <input type="reset" value="リセット"></p></div>
+</div>
 </s:form>
 
-
+<div class="right">
+              <div class="balloon1">
+              <p>計算するなら数値をいれてね！</p>
+              </div>
+	 <div class="keisan">
+		<img src="img/keisan.PNG" class="pic">
+	 </div>
+	</div>
+</div>
+<div class="myp">
 <s:form action="MyPageAction">
 <s:submit value="マイページ"/>
 </s:form>
+</div>
 
 
        <div id="text-link">
 
        </div>
-       </div>
-   </div>
+
+
 </body>
 </html>

@@ -131,9 +131,9 @@ table {
 			</div>
 		</div>
 	<div class="right">
-	<div class="keisan">
+	 <div class="keisan">
 		<img src="img/keisan.PNG" alt="写真">
-	</div>
+	 </div>
 	</div>
 </div>
 	<div id="footer">

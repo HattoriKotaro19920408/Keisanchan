@@ -51,6 +51,18 @@
       background-color:black;
       clear:both;
     }
+    .sub{
+    font-family=たぬき油性マジック;
+      width: 600px;
+	height: auto;
+	margin:0 auto;
+	padding: 30px;
+
+	background-color: skyblue;
+	border-radius: 50px;
+	background: rgba(149, 192, 236, 0.5);
+	text-align:center;
+    }
 </style>
 </head>
 <body>
@@ -62,7 +74,7 @@
        <div id="top">
             <p>CreateUser</p>
        </div>
-       <div>
+       <div class= "sub">
             <s:if test="errorMassage !=''">
                     <s:property value="errorMassage" escape="false"/>
             </s:if>
