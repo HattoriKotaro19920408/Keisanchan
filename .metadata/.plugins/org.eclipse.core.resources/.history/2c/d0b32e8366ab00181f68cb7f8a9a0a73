@@ -1,0 +1,202 @@
+package com.internousdev.keisanchan.action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.keisanchan.dao.MyPageDAO;
+import com.internousdev.keisanchan.dto.MyPageDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class MyPageAction extends ActionSupport implements SessionAware{
+	public Map<String, Object> session;
+//	private MyPageDAO myPageDAO = new MyPageDAO();
+//	private List<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
+	private String deleteFlg;
+	private String message;
+	private String result;
+	public String execute()throws SQLException{
+		MyPageDAO myPageDAO = new MyPageDAO();
+		MyPageDTO myPageDTO = new MyPageDTO();
+
+		if(deleteFlg == null){
+			String loginUserId = session.get("login_id").toString();
+
+			myPageDTO = myPageDAO.getKeisanResultInfo(loginUserId);
+
+			session.put("company_name",myPageDTO.getCompany_name());
+			session.put("roe",myPageDTO.getRoe());
+			session.put("roa",myPageDTO.getRoa());
+			session.put("uriage_keijo_ratio",myPageDTO.getUriage_keijo_ratio());
+			session.put("uriage_sori_ratio",myPageDTO.getUriage_sori_ratio());
+			session.put("uriage_eigyo_ratio",myPageDTO.getUriage_eigyo_ratio());
+			session.put("total_kaiten_ratio",myPageDTO.getTotal_kaiten_ratio());
+			session.put("zaiko_kaiten_ratio",myPageDTO.getZaiko_kaiten_ratio());
+			session.put("ryudo_ratio",myPageDTO.getRyudo_ratio());
+			session.put("zikoshi_ratio",myPageDTO.getZikoshi_ratio());
+			session.put("kotei_ratio",myPageDTO.getKotei_ratio());
+			session.put("fusai_ratio",myPageDTO.getFusai_ratio());
+		}else if(deleteFlg.equals("1")){
+			delete();
+		}
+		result = SUCCESS;
+		return result;
+	}
+	private void delete() {
+		MyPageDAO myPageDAO = new MyPageDAO();
+
+		 String loginUserId = session.get("login_id").toString();
+
+		 int res = 0;
+		try {
+			res = myPageDAO.keisanResultHistoryDelete(loginUserId);
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		 if(res>0){
+			 session.put("message", "商品さくじょせいこう");
+		 }else if(res==0){
+			 session.put("message","商品さくじょしっぱい");
+		 }
+
+	}
+	public String getDeleteFlg() {
+		return deleteFlg;
+	}
+	public void setDeleteFlg(String deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
+	@Override
+	public void setSession(Map<String, Object> loginSessionMap) {
+		// TODO 自動生成されたメソッド・スタブ
+		this.session = loginSessionMap;
+
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
+
+////	keisanResultDAO.keisan(((LoginDTO)session.get("loginUserId")).getLoginUserId(),
+//	@SuppressWarnings("unused")
+//	public String execute() throws SQLException {
+//		myPageDTO = myPageDAO.getKeisanResultInfo(login_id);
+//		session.put("loginUserId",loginDTO);
+//
+//		MyPageDAO myPageDao = new MyPageDAO();
+//		List<MyPageDTO> myPageDtoList = new ArrayList<MyPageDTO>();
+//		myPageDtoList = myPageDao.getMyPageList(String.valueOf(session.get("loginUserId")));
+//		Iterator<MyPageDTO> iterator = myPageDtoList.iterator();
+//		if(!(iterator.hasNext())){
+//		    myPageDtoList = null;
+//		}
+//		session.put("myPageDtoList", myPageDtoList);
+//
+//
+//		String result = ERROR;
+//		if (!session.containsKey("loginUserId")) {
+//			result = SUCCESS;
+//		}
+//		myPageDAO.getKeisanResultInfo(LoginDTO)session.get("loginUserId")).getLoginUserId();
+//		if(deleteFlg == null) {
+//			String company_name = session.get("company_name").toString();
+//			String roe = (session.get("roe").toString());
+//			String roa = (session.get("roa").toString());
+//			String uriage_keijo_ratio =(session.get("uriage_keijo_ratio").toString());
+//			String uriage_sori_ratio =(session.get("uriage_sori_ratio").toString());
+//			String uriage_eigyo_ratio =(session.get("uriage_eigyo_ratio").toString());
+//			String total_kaiten_ratio =(session.get("total_kaiten_ratio").toString());
+//			String zaiko_kaiten_ratio =(session.get("zaiko_kaiten_ratio").toString());
+//			String ryudo_ratio =(session.get("ryudo_ratio").toString());
+//			String zikoshi_ratio =(session.get("zikoshi_ratio").toString());
+//			String kotei_ratio =(session.get("kotei_ratio").toString());
+//			String fusai_ratio =(session.get("fusai_ratio").toString());
+//
+//
+//		} else if(deleteFlg.equals("1")) {
+//					delete();
+//
+//		}
+//
+//
+//		return result;
+//	}
+//
+//
+//
+//
+////	MyPageDAO myPageDao = new MyPageDAO();
+////	List<MyPageDTO> myPageDtoList = new ArrayList<MyPageDTO>();
+////	myPageDtoList = myPageDao.getMyPageList(String.valueOf(session.get("loginId")));
+////	Iterator<MyPageDTO> iterator = myPageDtoList.iterator();
+////	if(!(iterator.hasNext())) {
+////		myPageDtoList = null;
+////	}
+//
+//
+//	public void delete()throws SQLException{
+//
+//		String company_name = session.get("company_name").toString();
+//		String roe = (session.get("roe").toString());
+//		String roa = (session.get("roa").toString());
+//		String uriage_keijo_ratio =(session.get("uriage_keijo_ratio").toString());
+//		String uriage_sori_ratio =(session.get("uriage_sori_ratio").toString());
+//		String uriage_eigyo_ratio =(session.get("uriage_eigyo_ratio").toString());
+//		String total_kaiten_ratio =(session.get("total_kaiten_ratio").toString());
+//		String zaiko_kaiten_ratio =(session.get("zaiko_kaiten_ratio").toString());
+//		String ryudo_ratio =(session.get("ryudo_ratio").toString());
+//		String zikoshi_ratio =(session.get("zikoshi_ratio").toString());
+//		String kotei_ratio =(session.get("kotei_ratio").toString());
+//		String fusai_ratio =(session.get("fusai_ratio").toString());
+//
+//
+//
+//		int res = myPageDAO.keisanResultHistoryDelete(company_name, roa, roe, uriage_keijo_ratio, uriage_sori_ratio, uriage_eigyo_ratio, total_kaiten_ratio, zaiko_kaiten_ratio, ryudo_ratio, zikoshi_ratio, kotei_ratio, fusai_ratio);
+//
+//		if(res > 0){
+//			myPageList = null;
+//			setMessage("計算履歴情報を正しく削除しました");
+//		}else if(res == 0){
+//			setMessage("計算履歴情報の削除に失敗しました");
+//		}
+//	}
+//
+//	public void setDeleteFlg(String deleteFlg){
+//		this.deleteFlg = deleteFlg;
+//	}
+//	@Override
+//	public void setSession(Map<String, Object>session){
+//		this.session = session;
+//	}
+//	public List<MyPageDTO> getMyPageList(){
+//		return this.myPageList;
+//	}
+//	public String getMessage(){
+//		return this.message;
+//	}
+//	public void setMessage(String message){
+//		this.message = message;
+//	}
+//
+//
+//
+//
+//	public MyPageDTO getMyPageDTO() {
+//		return myPageDTO;
+//	}
+//
+//
+//
+//
+//	public void setMyPageDTO(MyPageDTO myPageDTO) {
+//		this.myPageDTO = myPageDTO;
+//	}
+//
+}

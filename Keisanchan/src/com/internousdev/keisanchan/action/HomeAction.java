@@ -17,6 +17,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 		if(session.containsKey("id")){
 			MyPageDAO myPageDAO = new MyPageDAO();
 			MyPageDTO myPageDTO = myPageDAO.getKeisanResultInfo();
+			session.put("login_id", myPageDTO.getLogin_id());
 			session.put("company_name", myPageDTO.getCompany_name());
 			session.put("roe",myPageDTO.getRoe());
 			session.put("roa",myPageDTO.getRoa());
@@ -26,6 +27,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 			session.put("total_kaiten_ratio",myPageDTO.getTotal_kaiten_ratio());
 			session.put("zaiko_kaiten_ratio",myPageDTO.getZaiko_kaiten_ratio());
 			session.put("ryudo_ratio",myPageDTO.getRyudo_ratio());
+			session.put("zikoshi_ratio",myPageDTO.getZikoshi_ratio());
 			session.put("kotei_ratio",myPageDTO.getKotei_ratio());
 			session.put("fusai_ratio",((MyPageDTO) myPageDTO).getFusai_ratio());
 			result = SUCCESS;

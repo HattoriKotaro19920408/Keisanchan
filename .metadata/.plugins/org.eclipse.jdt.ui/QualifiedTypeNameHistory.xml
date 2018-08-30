@@ -4,6 +4,10 @@
 <fullyQualifiedTypeName name="com.ibm.icu.text.Edits.Iterator"/>
 <fullyQualifiedTypeName name="com.internousdev.keisanchan.dto.KeisanResultDTO"/>
 <fullyQualifiedTypeName name="com.internousdev.keisanchan.dao.KeisanResultDAO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.internousdev.keisanchan.dao.MyPageDAO"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
 </qualifiedTypeNameHistroy>

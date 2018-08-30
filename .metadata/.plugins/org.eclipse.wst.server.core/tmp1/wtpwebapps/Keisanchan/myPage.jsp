@@ -24,7 +24,6 @@ body {
 	color: #333;
 	background: #fff;
 }
-
 table {
 	text-align: center;
 	margin: 0 auto;
@@ -35,33 +34,28 @@ table {
 	margin: 30px auto;
 	border: 1px solid #333;
 }
-
 #header {
 	width: 100%;
 	height: 80px;
 	background-color: #1655FF;
 }
-
 #main {
 	width: 100%;
 	height: 500px;
 	text-align: center;
 }
-
 #footer {
 	width: 100%;
 	height: 80px;
 	background-color: #1655FF;
 	clear: both;
 }
-
 #text-right {
 	display: inline-block;
 	text-align: right;
 }
-
 .keisan {
-
+    text-align:right;
 }
 </style>
 </head>
@@ -73,7 +67,7 @@ table {
 		<div id="top">
 			<p>MyPage</p>
 		</div>
-		<div>
+		<div class="left">
 			<s:if test="myPageList == null">
 				<h3>計算履歴情報はありません。</h3>
 			</s:if>
@@ -95,9 +89,9 @@ table {
 						<th>負債比率</th>
 
 					</tr>
-					<s:iterator value="#session myPageDtoList">
+					<s:iterator value="#session.myPageDtoList">
 						<tr>
-							<td><s:property value="company_name" /><s:hidden name="company_name" value="%{company_name}"/></td>
+							<td><s:property value="company_name" /></td>
 							<td><s:property value="roe" /></td>
 							<td><s:property value="roa" /></td>
 							<td><s:property value="uriage_keijo_ratio" /></td>
@@ -109,6 +103,7 @@ table {
 							<td><s:property value="zikoshi_ratio" /></td>
 							<td><s:property value="kotei_ratio" /></td>
 							<td><s:property value="fusai_ratio" /></td>
+<%-- 							<s:hidden name="company_name" value="%{company_name}"/> --%>
 
 						</tr>
 					</s:iterator>
@@ -135,11 +130,12 @@ table {
 
 			</div>
 		</div>
-	</div>
+	<div class="right">
 	<div class="keisan">
 		<img src="img/keisan.PNG" alt="写真">
 	</div>
-
+	</div>
+</div>
 	<div id="footer">
 		<div id="pr"></div>
 	</div>

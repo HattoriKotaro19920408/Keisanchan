@@ -18,8 +18,17 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public String execute(){
 		String result = ERROR;
+		System.out.println("----LoginAction");
+		System.out.println(loginUserId);
+
 		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 		session.put("loginUserId",loginDTO);
+
+		if(session.containsKey("loginUserId")){
+			session.put("login_id", loginUserId);
+			System.out.println(session.get("login_id").toString());
+			System.out.println("-------------------");
+		}
 
 		if(((LoginDTO)session.get("loginUserId")).getLoginFlg()){
 			result = SUCCESS;
@@ -48,4 +57,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
     public void setSession(Map<String, Object> session) {
     this.session = session;
 }
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
 }

@@ -40,6 +40,7 @@
       width:100%;
       height:500px;
       text-align:center;
+
     }
     #footer{
       width:100%;
@@ -50,6 +51,27 @@
     #text-link{
       display:inline-block;
       text-align:right;
+    }
+    img.pic{
+    }
+    .sub{
+    font-family=たぬき油性マジック;
+      width: 600px;
+	height: auto;
+	margin:0 auto;
+	padding: 30px;
+
+	background-color: skyblue;
+	border-radius: 50px;
+	background: rgba(149, 192, 236, 0.5);
+	text-align:center;
+    }
+    h3{
+     font-family:油性たぬきマジック;
+    }
+    .login{
+      float:left;
+      color:red;
     }
 </style>
 </head>
@@ -63,13 +85,19 @@
        <div id="top">
           <p>Login</p>
        </div>
-       <div>
-        <h3>商品を購入する際にはログインをお願いします</h3>
+       <div class="sub">
+        <h3>計算する際にはログインをお願いします</h3>
+
+
           <s:form action="LoginAction">
+           <div class="login"> <s:label value="ログインID:" /></div>
               <s:textfield name="loginUserId"/>
               <s:password name="loginPassword"/>
               <s:submit value="ログイン"/>
        </s:form>
+<!--          <div class="keisan"> -->
+<!-- 		              <img src=img/keisan.PNG class="pic"> -->
+<!-- 	     </div> -->
        <br/>
        <div id="text-link">
           <p>新規ユーザー登録は

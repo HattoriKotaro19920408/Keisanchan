@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.keisanchan.dao.KeisanResultDAO;
-import com.internousdev.keisanchan.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class KeisanResultAction extends ActionSupport implements SessionAware{
@@ -54,7 +53,8 @@ public class KeisanResultAction extends ActionSupport implements SessionAware{
 
 
 		KeisanResultDAO keisanResultDAO = new KeisanResultDAO();
-		keisanResultDAO.keisan(((LoginDTO)session.get("loginUserId")).getLoginUserId(),
+//		keisanResultDAO.keisan(((LoginDTO)session.get("loginUserId")).getLoginUserId(),
+		keisanResultDAO.keisan(session.get("login_id").toString(),
 				session.get("company_name").toString(),
 				session.get("roe").toString(),
 				session.get("roa").toString(),

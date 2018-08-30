@@ -25,10 +25,10 @@ public class MyPageDTO {
 		this.company_name = company_name;
 	}
 
-	public String getlogin_id() {
+	public String getLogin_id() {
 		return login_id;
 	}
-	public void setlogin_id(String login_id) {
+	public void setLogin_id(String login_id) {
 		this.login_id = login_id;
 	}
 

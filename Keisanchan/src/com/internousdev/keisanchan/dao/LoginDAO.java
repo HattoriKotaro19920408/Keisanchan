@@ -9,11 +9,12 @@ import com.internousdev.keisanchan.util.DBConnector;
 
 
 public class LoginDAO {
-	DBConnector dbConnector = new DBConnector();
-	Connection connection = dbConnector.getConnection();
-	LoginDTO loginDTO = new LoginDTO();
+
 
 	public LoginDTO getLoginUserInfo(String loginUserId,String loginPassword){
+		DBConnector dbConnector = new DBConnector();
+		Connection connection = dbConnector.getConnection();
+		LoginDTO loginDTO = new LoginDTO();
 		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
 
 		try{
@@ -25,7 +26,7 @@ public class LoginDAO {
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			if(resultSet.next()){
-				loginDTO.setLoginUserId(resultSet.getString("login_id"));
+				loginDTO.setLoginId(resultSet.getString("login_id"));
 				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
 
@@ -39,8 +40,6 @@ public class LoginDAO {
 		return loginDTO;
 	}
 
-	public LoginDTO getLoginDTO(){
-		return loginDTO;
+
 	}
 
-}
