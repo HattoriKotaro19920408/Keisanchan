@@ -117,6 +117,9 @@
     clear:both;
     text-align:center;
 }
+.kokuban{
+    background--image:url("kokuban.png")
+}
 
 </style>
 </head>
@@ -128,7 +131,7 @@
         </div>
 </div>
 <div id = "main">
-<div class="kokuban"></div>
+<div class="kokuban">
 		<img src="img/kokuban.png" class="kokuban">
        <div id="top">
           <p>計算</p>
@@ -174,6 +177,7 @@
 		<img src="img/keisan.PNG" class="pic">
 	 </div>
 	</div>
+</div>
 </div>
 <div class="myp">
 <s:form action="MyPageAction">

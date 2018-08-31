@@ -42,11 +42,11 @@ table {
 #main {
 	width: 100%;
 	height: 500px;
-	text-align: center;
+ 	text-align: center;
 }
 #footer {
 	width: 100%;
-	height: 80px;
+/* 	height: 80px; */
 	background-color: #1655FF;
 	clear: both;
 }
@@ -55,7 +55,46 @@ table {
 	text-align: right;
 }
 .keisan {
-    text-align:right;
+/*     text-align:right; */
+    width:50%;
+    float:right;
+}
+.balloon1 {
+ 	position: relative;
+	display: inline-block;
+ 	margin: 1.5em 0;
+	padding: 7px 10px;
+	min-width: 120px;
+ 	max-width: 100%;
+ 	color: #555;
+	font-size: 16px;
+	background: #e0edff;
+	border-radius: 15px;
+
+
+
+}
+.balloon1:before{
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+ 	margin-left: -15px;
+	border: 15px solid transparent;
+	border-top: 15px solid #e0edff;
+
+}
+.balloon1 p {
+	margin: 0;
+	padding: 0;
+	text-align:right;
+	float:right;
+
+}
+#main .balloon1{
+    clear:both;
+
+   text-align:center;
 }
 </style>
 </head>
@@ -130,9 +169,14 @@ table {
 
 			</div>
 		</div>
+
 	<div class="right">
+
 	 <div class="keisan">
-		<img src="img/keisan.PNG" alt="写真">
+	          <div class="balloon1">
+              <p>計算結果だよ</p>
+              </div>
+		<img src="img/keisan.PNG" class="pic">
 	 </div>
 	</div>
 </div>
